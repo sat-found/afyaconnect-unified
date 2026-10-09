@@ -9,7 +9,7 @@ import json
 import re
 
 # Nigerian mobile patterns: 0803..., 0701..., 090..., +234...
-NIGERIAN_PHONE = re.compile(r'\b(0[789][01]\d{8}|\+234[789][01]\d{8})\b')
+NIGERIAN_PHONE = re.compile(r'(0[789][01]\d{8}|\+234[789][01]\d{8})')
 
 REDACTED = '[PHONE_REDACTED]'
 

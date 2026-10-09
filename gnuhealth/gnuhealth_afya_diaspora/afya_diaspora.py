@@ -3,7 +3,6 @@
 """Diaspora: specialists, case briefs, consultations, scored matches."""
 from trytond.model import ModelSQL, ModelView, Workflow, fields
 from trytond.pool import Pool
-from trytond.transaction import Transaction
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 
 

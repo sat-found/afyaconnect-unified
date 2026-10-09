@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Analytics outbox with k-anonymity cascade + schema validation."""
 from trytond.model import ModelSQL, ModelView, fields
-from trytond.pool import Pool
 
 from trytond.modules.gnuhealth_afya_core.afya_utils import (
     anonymize_payload, coarsen_region, validate_analytics_payload)

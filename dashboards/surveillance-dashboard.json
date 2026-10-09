@@ -1,0 +1,4 @@
+{"title": "AfyaConnect Surveillance (Looker Studio)", "tiles": [
+  {"metric": "triage_by_level_region_week", "min_k": 10, "refresh": "5min"},
+  {"metric": "red_flag_sensitivity", "target": ">=95%"},
+  {"metric": "language_variance", "target": "<10%"}]}

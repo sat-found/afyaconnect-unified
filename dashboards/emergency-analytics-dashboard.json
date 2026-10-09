@@ -1,0 +1,5 @@
+{"title": "AfyaConnect Emergency Analytics (Looker Studio)", "tiles": [
+  {"metric": "dispatch_window_A_seconds", "target": "<60"},
+  {"metric": "dispatch_window_B_seconds", "target": "<30"},
+  {"metric": "dispatch_window_D_seconds", "target": "<90"},
+  {"metric": "dashboard_freshness_min", "target": "<5"}]}

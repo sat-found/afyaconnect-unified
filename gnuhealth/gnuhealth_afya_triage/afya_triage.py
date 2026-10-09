@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Triage session: state machine, protected-field guards, rationale validation,
 keyword detection, TTL purge. Security PoC pattern (G0 T012–T017) applied."""
-import json
 import logging
 from datetime import datetime, timedelta
 
@@ -13,6 +12,23 @@ from trytond.pyson import Eval
 from trytond.transaction import Transaction
 
 from trytond.modules.gnuhealth_afya_core.afya_utils import redact_phone_numbers
+
+try:
+    from trytond.modules.gnuhealth_afya_triage.triage_logic import (  # noqa: F401
+        TRIAGE_LEVELS, RATIONALE_REQUIRED_KEYS, validate_rationale as _validate,
+        detect_emergency_keywords, needs_human_review)
+except ImportError:  # local test path
+    from .triage_logic import (  # noqa: F401
+        TRIAGE_LEVELS, RATIONALE_REQUIRED_KEYS, validate_rationale as _validate,
+        detect_emergency_keywords, needs_human_review)
+
+
+def validate_rationale(value):
+    try:
+        return _validate(value)
+    except Exception as exc:  # triage_logic raises ValueError subclass
+        raise UserError(str(exc))
+
 
 logger = logging.getLogger(__name__)
 
@@ -28,51 +44,6 @@ REVIEWER_FIELDS = frozenset({
     'reviewer_notes',
     'review_timestamp',
 })
-
-RATIONALE_REQUIRED_KEYS = frozenset({'level', 'confidence', 'red_flags', 'model_version'})
-
-TRIAGE_LEVELS = ['green', 'yellow', 'red', 'emergency']
-
-
-def validate_rationale(value):
-    """Validate clinical rationale JSON (§5.1). Pure function — unit-testable."""
-    if not value:
-        return True
-    try:
-        data = json.loads(value)
-    except (TypeError, ValueError):
-        raise UserError('clinical_rationale must be valid JSON.')
-    if not isinstance(data, dict):
-        raise UserError('clinical_rationale must be a JSON object.')
-    missing = RATIONALE_REQUIRED_KEYS - set(data.keys())
-    if missing:
-        raise UserError('clinical_rationale missing keys: %s' % sorted(missing))
-    if data.get('level') not in TRIAGE_LEVELS:
-        raise UserError('clinical_rationale.level must be one of %s' % TRIAGE_LEVELS)
-    conf = data.get('confidence')
-    if not isinstance(conf, (int, float)) or not 0 <= conf <= 1:
-        raise UserError('clinical_rationale.confidence must be in [0,1].')
-    if not isinstance(data.get('red_flags'), list):
-        raise UserError('clinical_rationale.red_flags must be a list.')
-    return True
-
-
-def detect_emergency_keywords(text, keywords):
-    """Case-insensitive substring match. Pure function — unit-testable.
-
-    text: free input; keywords: iterable of (term, language).
-    Returns list of matched terms (deduplicated, order-stable).
-    """
-    if not text:
-        return []
-    lowered = text.lower()
-    seen, matched = set(), []
-    for term, _lang in keywords:
-        t = (term or '').lower()
-        if t and t in lowered and t not in seen:
-            seen.add(t)
-            matched.append(term)
-    return matched
 
 
 class TriageSession(Workflow, ModelSQL, ModelView):

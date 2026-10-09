@@ -2,41 +2,21 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Dispatch: 10-state machine, human-gate wizards, kit templates, NAERS stub."""
 import logging
-from datetime import datetime
 
 from trytond.exceptions import UserError
 from trytond.model import ModelSQL, ModelView, Workflow, fields
-from trytond.pool import Pool
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
+
+try:
+    from trytond.modules.gnuhealth_afya_dispatch.dispatch_logic import (  # noqa: F401
+        KIT_TEMPLATES, naers_accept_stub)
+except ImportError:  # local test path
+    from .dispatch_logic import KIT_TEMPLATES, naers_accept_stub  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
 PROTECTED_DISPATCH_FIELDS = frozenset({'ambulance_id', 'eta_minutes', 'destination_facility'})
-
-KIT_TEMPLATES = [
-    ('trauma', 'Trauma Kit'),
-    ('obstetric', 'Obstetric Emergency Kit'),
-    ('cardiac', 'Cardiac Emergency Kit'),
-    ('pediatric', 'Pediatric Emergency Kit'),
-    ('respiratory', 'Respiratory Emergency Kit'),
-    ('burns', 'Burns Kit'),
-    ('sepsis', 'Sepsis Kit'),
-    ('stroke', 'Stroke Kit'),
-    ('mass_casualty', 'Mass Casualty Kit'),
-    ('general', 'General Emergency Kit'),
-]
-
-
-def naers_accept_stub(payload):
-    """NAERS stub (disclosed): accept + return mock assignment. No network."""
-    ref = 'NAERS-%s' % (abs(hash(str(sorted(payload.items())))) % 90000 + 10000)
-    return {
-        'status': 'accepted (STUB)',
-        'assignment_ref': ref,
-        'eta_minutes': 25,
-        'accepted_at': datetime.utcnow().isoformat() + 'Z',
-    }
 
 
 class DispatchRequest(Workflow, ModelSQL, ModelView):

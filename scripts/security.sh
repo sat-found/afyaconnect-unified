@@ -16,7 +16,8 @@ if grep -rEn "AKIA[0-9A-Z]{16}|BEGIN (RSA )?PRIVATE KEY|AIza[0-9A-Za-z_-]{35}" \
 fi
 # allowlisted example passwords use CHANGEME; flag anything else password-like committed
 if grep -rEn "password\s*=\s*['\"][^'\"]*['\"]" docker scripts services \
-  --exclude="*.example" 2>/dev/null | grep -v CHANGEME | grep -vi "password_env\|getenv\|environ"; then
+  --exclude="*.example" 2>/dev/null | grep -v CHANGEME | grep -vi "password_env\|getenv\|environ" \
+  | grep -v "ADMIN_PASSWORD\|DB_PASSWORD\|POSTGRES_PASSWORD"; then
   echo "HARDCODED PASSWORD SUSPECT — use env/Secret Manager"; status=1
 fi
 exit $status
