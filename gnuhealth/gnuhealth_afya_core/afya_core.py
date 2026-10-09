@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Core models: config singleton, consent, post-hoc tasks, external refs."""
+from trytond.exceptions import UserError
 from trytond.model import ModelSingleton, ModelSQL, ModelView, fields
+from trytond.transaction import Transaction
 
 
 class AfyaConfig(ModelSingleton, ModelView):
@@ -87,6 +89,19 @@ class PostHocConsentTask(ModelSQL, ModelView):
     @staticmethod
     def default_resolved():
         return False
+
+    @classmethod
+    def write(cls, *args):
+        # Resolution is wizard-only: deferred consent must be captured
+        # deliberately, never by casual edits (T009/T044).
+        actions = iter(args)
+        for _tasks, values in zip(actions, actions):
+            if set(values) & {'resolved', 'resolution_consent'}:
+                if not Transaction().context.get('_afya_consent_wizard'):
+                    raise UserError(
+                        'Post-hoc consent can only be resolved via the '
+                        'Resolve wizard.')
+        return super().write(*args)
 
 
 class ExternalRef(ModelSQL, ModelView):

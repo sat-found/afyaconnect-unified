@@ -29,5 +29,22 @@
             <field name="parent" ref="menu_afya"/>
             <field name="action" ref="act_consent_record"/>
         </record>
+        <record model="ir.ui.view" id="resolve_posthoc_start_view_form">
+            <field name="model">gnuhealth.afya.resolve_posthoc_consent.start</field>
+            <field name="type">form</field>
+            <field name="name">resolve_posthoc_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Resolve Post-Hoc Consent">
+                    <label name="resolution_consent"/>
+                    <field name="resolution_consent"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_resolve_posthoc">
+            <field name="name">Resolve Post-Hoc Consent</field>
+            <field name="wiz_name">gnuhealth.afya.resolve_posthoc_consent</field>
+        </record>
     </data>
 </tryton>
