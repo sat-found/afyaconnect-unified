@@ -1,0 +1,25 @@
+# GNU Health + AfyaConnect Tryton image (pinned, reproducible).
+# SPDX-License-Identifier: GPL-3.0-or-later
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 TRYTOND_VERSION=7.0 GNUHEALTH_VERSION=5.0.5
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential libpq-dev libxml2-dev libxslt1-dev libreoffice-impler \
+    ghostscript 2>/dev/null; apt-get install -y --no-install-recommends \
+    build-essential libpq-dev libxml2-dev libxslt1-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/gnuhealth
+COPY gnuhealth/ /opt/gnuhealth/modules/afya/
+COPY data/ /opt/gnuhealth/seed-xml/
+COPY docker/gnuhealth/trytond.conf.example /opt/gnuhealth/etc/trytond.conf.example
+COPY docker/gnuhealth/uwsgi.ini /opt/gnuhealth/etc/uwsgi.ini
+COPY docker/gnuhealth/init_and_run.sh /opt/gnuhealth/init_and_run.sh
+
+RUN pip install --no-cache-dir \
+    "trytond==7.0.*" "gnuhealth-all-modules==5.0.*" \
+    uwsgi psycopg2-binary lxml pyphen python-dateutil
+
+EXPOSE 8000
+CMD ["/opt/gnuhealth/init_and_run.sh"]

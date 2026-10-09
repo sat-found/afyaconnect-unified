@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-gnuhealth}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-CHANGEME-dev-only}
+      POSTGRES_DB: ${POSTGRES_DB:-health}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  tryton:
+    build: {context: ./docker, dockerfile: Dockerfile.gnuhealth}
+    depends_on: [postgres]
+    expose: ["8000"]
+  nginx:
+    build: {context: ./docker, dockerfile: Dockerfile.nginx}
+    depends_on: [tryton]
+    ports: ["${APP_PORT:-8091}:80"]
+volumes: {pgdata: {}, trytondata: {}}

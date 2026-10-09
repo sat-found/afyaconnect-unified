@@ -1,0 +1,8 @@
+# Copy to docker/gnuhealth/trytond.conf and fill secrets (NEVER commit filled file).
+[database]
+uri = postgresql://gnuhealth:CHANGEME-dev-only@postgres:5432/health
+path = /var/lib/tryton
+
+[web]
+listen = 0.0.0.0:8000
+root = /opt/gnuhealth/sao

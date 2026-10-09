@@ -1,0 +1,6 @@
+# Nginx + SAO static with AfyaConnect branding.
+# SPDX-License-Identifier: Apache-2.0
+FROM nginx:1.27-alpine
+COPY docker/nginx/reverse_proxy.conf /etc/nginx/conf.d/default.conf
+COPY sao-branding/ /usr/share/nginx/html/custom/
+EXPOSE 80

@@ -1,0 +1,265 @@
+<?xml version="1.0" ?>
+<tryton>
+  <data>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_00">
+      <field name="term">cannot breathe</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_01">
+      <field name="term">chest pain</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_02">
+      <field name="term">unconscious</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_03">
+      <field name="term">severe bleeding</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_04">
+      <field name="term">stroke</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_05">
+      <field name="term">heart attack</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_06">
+      <field name="term">seizure</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_07">
+      <field name="term">choking</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_08">
+      <field name="term">difficulty breathing</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_09">
+      <field name="term">high fever</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_10">
+      <field name="term">convulsion</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_11">
+      <field name="term">pregnancy bleeding</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_12">
+      <field name="term">severe headache</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_13">
+      <field name="term">labour pain</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_14">
+      <field name="term">severe abdominal pain</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_15">
+      <field name="term">allergic reaction</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_16">
+      <field name="term">drowning</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_17">
+      <field name="term">burns</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_18">
+      <field name="term">ba iya numfashi</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_19">
+      <field name="term">ciwon kirji</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_20">
+      <field name="term">suma</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_21">
+      <field name="term">jini mai yawa</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_22">
+      <field name="term">bugun jini</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_23">
+      <field name="term">zazzabi mai tsanani</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_24">
+      <field name="term">ciwon kai</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_25">
+      <field name="term">gudawa</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_26">
+      <field name="term">ba a iya numfashi</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_27">
+      <field name="term">zazzabi</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_28">
+      <field name="term">ciwon ciki mai tsanani</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_29">
+      <field name="term">nakudar ciki</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_30">
+      <field name="term">haihuwa</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_31">
+      <field name="term">ciwon ido</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_32">
+      <field name="term">tari mai tsanani</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_33">
+      <field name="term">a numaani</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_34">
+      <field name="term">mettu</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_35">
+      <field name="term">ngol ngol</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_36">
+      <field name="term">ngesa</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_37">
+      <field name="term">doole</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_38">
+      <field name="term">feccere</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_39">
+      <field name="term">nguurndam comci</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_40">
+      <field name="term">suuro</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_41">
+      <field name="term">nawnaare mawnde</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_42">
+      <field name="term">reedu fuu</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_43">
+      <field name="term">hoore nawnaare</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_44">
+      <field name="term">bernde</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_45">
+      <field name="term">emergency</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_46">
+      <field name="term">help me</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_47">
+      <field name="term">taimaka</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_48">
+      <field name="term">ballal</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_49">
+      <field name="term">asthma attack</field>
+      <field name="language">en</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_50">
+      <field name="term">gaggawa</field>
+      <field name="language">ha</field>
+      <field name="active" eval="True"/>
+    </record>
+    <record model="gnuhealth.afya.emergency_keyword" id="kw_51">
+      <field name="term">na needi ballal</field>
+      <field name="language">ff</field>
+      <field name="active" eval="True"/>
+    </record>
+  </data>
+</tryton>

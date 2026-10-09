@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<tryton>
+  <data>
+    <record model="party.party" id="gombe_worker_00">
+      <field name="name">Health Worker 00 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_01">
+      <field name="name">Health Worker 01 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_02">
+      <field name="name">Health Worker 02 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_03">
+      <field name="name">Health Worker 03 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_04">
+      <field name="name">Health Worker 04 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_05">
+      <field name="name">Health Worker 05 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_06">
+      <field name="name">Health Worker 06 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_07">
+      <field name="name">Health Worker 07 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_08">
+      <field name="name">Health Worker 08 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_09">
+      <field name="name">Health Worker 09 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_10">
+      <field name="name">Health Worker 10 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_11">
+      <field name="name">Health Worker 11 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_12">
+      <field name="name">Health Worker 12 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_13">
+      <field name="name">Health Worker 13 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_14">
+      <field name="name">Health Worker 14 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_15">
+      <field name="name">Health Worker 15 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_16">
+      <field name="name">Health Worker 16 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_17">
+      <field name="name">Health Worker 17 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_18">
+      <field name="name">Health Worker 18 (Gombe)</field>
+    </record>
+    <record model="party.party" id="gombe_worker_19">
+      <field name="name">Health Worker 19 (Gombe)</field>
+    </record>
+  </data>
+</tryton>
