@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- 10 dispatch kit templates by event type (T035). Items are categorical lists. -->
+<tryton>
+    <data>
+        <record model="gnuhealth.afya.kit_template" id="kit_trauma">
+            <field name="name">Trauma Kit</field>
+            <field name="event_type">trauma</field>
+            <field name="items_json">["c-spine collar", "hemorrhage dressing", "splint set", "oxygen mask"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_obstetric">
+            <field name="name">Obstetric Emergency Kit</field>
+            <field name="event_type">obstetric</field>
+            <field name="items_json">["delivery set", "oxytocin cold-chain", "neonatal resuscitator", "sterile drapes"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_cardiac">
+            <field name="name">Cardiac Emergency Kit</field>
+            <field name="event_type">cardiac</field>
+            <field name="items_json">["AED", "aspirin", "nitroglycerin", "ECG electrodes"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_pediatric">
+            <field name="name">Pediatric Emergency Kit</field>
+            <field name="event_type">pediatric</field>
+            <field name="items_json">["pediatric BVM", "weight tape", "IO needles", "dextrose gel"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_respiratory">
+            <field name="name">Respiratory Emergency Kit</field>
+            <field name="event_type">respiratory</field>
+            <field name="items_json">["nebulizer", "salbutamol", "pulse oximeter", "oxygen concentrator"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_burns">
+            <field name="name">Burns Kit</field>
+            <field name="event_type">burns</field>
+            <field name="items_json">["burn dressings", "cooling gel", "IV cannulas", "analgesia protocol card"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_sepsis">
+            <field name="name">Sepsis Kit</field>
+            <field name="event_type">sepsis</field>
+            <field name="items_json">["blood culture bottles", "broad-spectrum antibiotics", "lactate meter", "IV fluids"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_stroke">
+            <field name="name">Stroke Kit</field>
+            <field name="event_type">stroke</field>
+            <field name="items_json">["FAST assessment card", "glucometer", "aspirin", "oxygen mask"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_mass_casualty">
+            <field name="name">Mass Casualty Kit</field>
+            <field name="event_type">mass_casualty</field>
+            <field name="items_json">["triage tags", "stretchers", "mass transfusion protocol", "command vests"]</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.kit_template" id="kit_general">
+            <field name="name">General Emergency Kit</field>
+            <field name="event_type">general</field>
+            <field name="items_json">["first aid box", "BP cuff", "thermometer", "gloves"]</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</tryton>

@@ -16,17 +16,71 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(os.path.dirname(HERE), 'data')
 
 FACILITIES = [
+    # Gombe LGA (6): tertiary + township PHCs
     ('GOM-FMC-001', 'Federal Medical Centre Gombe', 'Gombe', 'hospital'),
     ('GOM-GSH-001', 'Gombe State Specialist Hospital', 'Gombe', 'hospital'),
+    ('GOM-PHC-GOM-001', 'Gombe Township Primary Health Centre', 'Gombe', 'health_centre'),
+    ('GOM-PHC-GOM-002', 'Pantami Primary Health Centre', 'Gombe', 'health_centre'),
+    ('GOM-PHC-GOM-003', 'Bolari Primary Health Centre', 'Gombe', 'health_centre'),
+    ('GOM-PHC-GOM-004', 'Tunfure Primary Health Centre', 'Gombe', 'health_centre'),
+    # Akko (5)
+    ('GOM-GH-AKK-001', 'Akko General Hospital, Kumo', 'Akko', 'hospital'),
+    ('GOM-PHC-AKK-001', 'Kumo Primary Health Centre', 'Akko', 'health_centre'),
+    ('GOM-PHC-AKK-002', 'Pindiga Primary Health Centre', 'Akko', 'health_centre'),
+    ('GOM-PHC-AKK-003', 'Kashere Primary Health Centre', 'Akko', 'health_centre'),
+    ('GOM-PHC-AKK-004', 'Kalshingi Primary Health Centre', 'Akko', 'health_centre'),
+    # Balanga (5)
+    ('GOM-GH-BAL-001', 'Balanga General Hospital, Talasse', 'Balanga', 'hospital'),
+    ('GOM-PHC-BAL-001', 'Talasse Primary Health Centre', 'Balanga', 'health_centre'),
+    ('GOM-PHC-BAL-002', 'Bambam Primary Health Centre', 'Balanga', 'health_centre'),
+    ('GOM-PHC-BAL-003', 'Swa Primary Health Centre', 'Balanga', 'health_centre'),
+    ('GOM-PHC-BAL-004', 'Gelengu Primary Health Centre', 'Balanga', 'health_centre'),
+    # Billiri (5)
+    ('GOM-GH-BIL-001', 'Billiri General Hospital', 'Billiri', 'hospital'),
+    ('GOM-PHC-BIL-001', 'Billiri Primary Health Centre', 'Billiri', 'health_centre'),
+    ('GOM-PHC-BIL-002', 'Kalmai Primary Health Centre', 'Billiri', 'health_centre'),
+    ('GOM-PHC-BIL-003', 'Todi Primary Health Centre', 'Billiri', 'health_centre'),
+    ('GOM-PHC-BIL-004', 'Pobawure Primary Health Centre', 'Billiri', 'health_centre'),
+    # Dukku (4)
+    ('GOM-GH-DUK-001', 'Dukku General Hospital', 'Dukku', 'hospital'),
     ('GOM-PHC-DUK-001', 'Dukku Primary Health Centre', 'Dukku', 'health_centre'),
-    ('GOM-PHC-KLT-001', 'Kaltungo Primary Health Centre', 'Kaltungo', 'health_centre'),
-    ('GOM-PHC-BLI-001', 'Billiri Primary Health Centre', 'Billiri', 'health_centre'),
-    ('GOM-PHC-SHG-001', 'Shongom Primary Health Centre', 'Shongom', 'health_centre'),
-    ('GOM-PHC-FUN-001', 'Funakaye Primary Health Centre', 'Funakaye', 'health_centre'),
-    ('GOM-PHC-NFD-001', 'Nafada Primary Health Centre', 'Nafada', 'health_centre'),
-    ('GOM-PHC-AKO-001', 'Akko Primary Health Centre', 'Akko', 'health_centre'),
-    ('GOM-PHC-YDB-001', 'Yamaltu/Deba Primary Health Centre', 'Yamaltu/Deba', 'health_centre'),
+    ('GOM-PHC-DUK-002', 'Waziri Primary Health Centre', 'Dukku', 'health_centre'),
+    ('GOM-PHC-DUK-003', 'Jamari Primary Health Centre', 'Dukku', 'health_centre'),
+    # Funakaye (4)
+    ('GOM-GH-FUN-001', 'Funakaye General Hospital, Bajoga', 'Funakaye', 'hospital'),
+    ('GOM-PHC-FUN-001', 'Bajoga Primary Health Centre', 'Funakaye', 'health_centre'),
+    ('GOM-PHC-FUN-002', 'Ashaka Primary Health Centre', 'Funakaye', 'health_centre'),
+    ('GOM-PHC-FUN-003', 'Jauro Abare Primary Health Centre', 'Funakaye', 'health_centre'),
+    # Kaltungo (4)
+    ('GOM-GH-KAL-001', 'Kaltungo General Hospital', 'Kaltungo', 'hospital'),
+    ('GOM-PHC-KAL-001', 'Kaltungo Primary Health Centre', 'Kaltungo', 'health_centre'),
+    ('GOM-PHC-KAL-002', 'Kamo Primary Health Centre', 'Kaltungo', 'health_centre'),
+    ('GOM-PHC-KAL-003', 'Ture Primary Health Centre', 'Kaltungo', 'health_centre'),
+    # Kwami (4)
+    ('GOM-GH-KWA-001', 'Kwami General Hospital, Malam Sidi', 'Kwami', 'hospital'),
+    ('GOM-PHC-KWA-001', 'Malam Sidi Primary Health Centre', 'Kwami', 'health_centre'),
+    ('GOM-PHC-KWA-002', 'Bojude Primary Health Centre', 'Kwami', 'health_centre'),
+    ('GOM-PHC-KWA-003', 'Komfulata Primary Health Centre', 'Kwami', 'health_centre'),
+    # Nafada (4)
+    ('GOM-GH-NAF-001', 'Nafada General Hospital', 'Nafada', 'hospital'),
+    ('GOM-PHC-NAF-001', 'Nafada Primary Health Centre', 'Nafada', 'health_centre'),
+    ('GOM-PHC-NAF-002', 'Jigawa Primary Health Centre', 'Nafada', 'health_centre'),
+    ('GOM-PHC-NAF-003', 'Barwo Primary Health Centre', 'Nafada', 'health_centre'),
+    # Shongom (4)
+    ('GOM-GH-SHO-001', 'Shongom General Hospital, Boh', 'Shongom', 'hospital'),
+    ('GOM-PHC-SHO-001', 'Boh Primary Health Centre', 'Shongom', 'health_centre'),
+    ('GOM-PHC-SHO-002', 'Lalaipido Primary Health Centre', 'Shongom', 'health_centre'),
+    ('GOM-PHC-SHO-003', 'Filiya Primary Health Centre', 'Shongom', 'health_centre'),
+    # Yamaltu/Deba (5)
+    ('GOM-GH-YDB-001', 'Deba General Hospital', 'Yamaltu/Deba', 'hospital'),
+    ('GOM-PHC-YDB-001', 'Deba Primary Health Centre', 'Yamaltu/Deba', 'health_centre'),
+    ('GOM-PHC-YDB-002', 'Hinna Primary Health Centre', 'Yamaltu/Deba', 'health_centre'),
+    ('GOM-PHC-YDB-003', 'Gwani Primary Health Centre', 'Yamaltu/Deba', 'health_centre'),
+    ('GOM-PHC-YDB-004', 'Dadin Kowa Primary Health Centre', 'Yamaltu/Deba', 'health_centre'),
 ]
+
+assert len(FACILITIES) == 50, 'T053 requires 50 Gombe facilities'
+assert len({c for c, _n, _l, _t in FACILITIES}) == 50, 'facility codes must be unique'
 
 KEYWORDS = [
     ('cannot breathe', 'en'), ('chest pain', 'en'), ('unconscious', 'en'),

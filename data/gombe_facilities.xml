@@ -11,44 +11,244 @@
       <field name="name">Gombe State Specialist Hospital</field>
       <field name="state">Gombe State (Gombe LGA)</field>
     </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_gom_001">
+      <field name="code">GOM-PHC-GOM-001</field>
+      <field name="name">Gombe Township Primary Health Centre</field>
+      <field name="state">Gombe State (Gombe LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_gom_002">
+      <field name="code">GOM-PHC-GOM-002</field>
+      <field name="name">Pantami Primary Health Centre</field>
+      <field name="state">Gombe State (Gombe LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_gom_003">
+      <field name="code">GOM-PHC-GOM-003</field>
+      <field name="name">Bolari Primary Health Centre</field>
+      <field name="state">Gombe State (Gombe LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_gom_004">
+      <field name="code">GOM-PHC-GOM-004</field>
+      <field name="name">Tunfure Primary Health Centre</field>
+      <field name="state">Gombe State (Gombe LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_akk_001">
+      <field name="code">GOM-GH-AKK-001</field>
+      <field name="name">Akko General Hospital, Kumo</field>
+      <field name="state">Gombe State (Akko LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_akk_001">
+      <field name="code">GOM-PHC-AKK-001</field>
+      <field name="name">Kumo Primary Health Centre</field>
+      <field name="state">Gombe State (Akko LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_akk_002">
+      <field name="code">GOM-PHC-AKK-002</field>
+      <field name="name">Pindiga Primary Health Centre</field>
+      <field name="state">Gombe State (Akko LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_akk_003">
+      <field name="code">GOM-PHC-AKK-003</field>
+      <field name="name">Kashere Primary Health Centre</field>
+      <field name="state">Gombe State (Akko LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_akk_004">
+      <field name="code">GOM-PHC-AKK-004</field>
+      <field name="name">Kalshingi Primary Health Centre</field>
+      <field name="state">Gombe State (Akko LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_bal_001">
+      <field name="code">GOM-GH-BAL-001</field>
+      <field name="name">Balanga General Hospital, Talasse</field>
+      <field name="state">Gombe State (Balanga LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bal_001">
+      <field name="code">GOM-PHC-BAL-001</field>
+      <field name="name">Talasse Primary Health Centre</field>
+      <field name="state">Gombe State (Balanga LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bal_002">
+      <field name="code">GOM-PHC-BAL-002</field>
+      <field name="name">Bambam Primary Health Centre</field>
+      <field name="state">Gombe State (Balanga LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bal_003">
+      <field name="code">GOM-PHC-BAL-003</field>
+      <field name="name">Swa Primary Health Centre</field>
+      <field name="state">Gombe State (Balanga LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bal_004">
+      <field name="code">GOM-PHC-BAL-004</field>
+      <field name="name">Gelengu Primary Health Centre</field>
+      <field name="state">Gombe State (Balanga LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_bil_001">
+      <field name="code">GOM-GH-BIL-001</field>
+      <field name="name">Billiri General Hospital</field>
+      <field name="state">Gombe State (Billiri LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bil_001">
+      <field name="code">GOM-PHC-BIL-001</field>
+      <field name="name">Billiri Primary Health Centre</field>
+      <field name="state">Gombe State (Billiri LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bil_002">
+      <field name="code">GOM-PHC-BIL-002</field>
+      <field name="name">Kalmai Primary Health Centre</field>
+      <field name="state">Gombe State (Billiri LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bil_003">
+      <field name="code">GOM-PHC-BIL-003</field>
+      <field name="name">Todi Primary Health Centre</field>
+      <field name="state">Gombe State (Billiri LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_bil_004">
+      <field name="code">GOM-PHC-BIL-004</field>
+      <field name="name">Pobawure Primary Health Centre</field>
+      <field name="state">Gombe State (Billiri LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_duk_001">
+      <field name="code">GOM-GH-DUK-001</field>
+      <field name="name">Dukku General Hospital</field>
+      <field name="state">Gombe State (Dukku LGA)</field>
+    </record>
     <record model="gnuhealth.institution" id="fac_gom_phc_duk_001">
       <field name="code">GOM-PHC-DUK-001</field>
       <field name="name">Dukku Primary Health Centre</field>
       <field name="state">Gombe State (Dukku LGA)</field>
     </record>
-    <record model="gnuhealth.institution" id="fac_gom_phc_klt_001">
-      <field name="code">GOM-PHC-KLT-001</field>
-      <field name="name">Kaltungo Primary Health Centre</field>
-      <field name="state">Gombe State (Kaltungo LGA)</field>
+    <record model="gnuhealth.institution" id="fac_gom_phc_duk_002">
+      <field name="code">GOM-PHC-DUK-002</field>
+      <field name="name">Waziri Primary Health Centre</field>
+      <field name="state">Gombe State (Dukku LGA)</field>
     </record>
-    <record model="gnuhealth.institution" id="fac_gom_phc_bli_001">
-      <field name="code">GOM-PHC-BLI-001</field>
-      <field name="name">Billiri Primary Health Centre</field>
-      <field name="state">Gombe State (Billiri LGA)</field>
+    <record model="gnuhealth.institution" id="fac_gom_phc_duk_003">
+      <field name="code">GOM-PHC-DUK-003</field>
+      <field name="name">Jamari Primary Health Centre</field>
+      <field name="state">Gombe State (Dukku LGA)</field>
     </record>
-    <record model="gnuhealth.institution" id="fac_gom_phc_shg_001">
-      <field name="code">GOM-PHC-SHG-001</field>
-      <field name="name">Shongom Primary Health Centre</field>
-      <field name="state">Gombe State (Shongom LGA)</field>
+    <record model="gnuhealth.institution" id="fac_gom_gh_fun_001">
+      <field name="code">GOM-GH-FUN-001</field>
+      <field name="name">Funakaye General Hospital, Bajoga</field>
+      <field name="state">Gombe State (Funakaye LGA)</field>
     </record>
     <record model="gnuhealth.institution" id="fac_gom_phc_fun_001">
       <field name="code">GOM-PHC-FUN-001</field>
-      <field name="name">Funakaye Primary Health Centre</field>
+      <field name="name">Bajoga Primary Health Centre</field>
       <field name="state">Gombe State (Funakaye LGA)</field>
     </record>
-    <record model="gnuhealth.institution" id="fac_gom_phc_nfd_001">
-      <field name="code">GOM-PHC-NFD-001</field>
+    <record model="gnuhealth.institution" id="fac_gom_phc_fun_002">
+      <field name="code">GOM-PHC-FUN-002</field>
+      <field name="name">Ashaka Primary Health Centre</field>
+      <field name="state">Gombe State (Funakaye LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_fun_003">
+      <field name="code">GOM-PHC-FUN-003</field>
+      <field name="name">Jauro Abare Primary Health Centre</field>
+      <field name="state">Gombe State (Funakaye LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_kal_001">
+      <field name="code">GOM-GH-KAL-001</field>
+      <field name="name">Kaltungo General Hospital</field>
+      <field name="state">Gombe State (Kaltungo LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kal_001">
+      <field name="code">GOM-PHC-KAL-001</field>
+      <field name="name">Kaltungo Primary Health Centre</field>
+      <field name="state">Gombe State (Kaltungo LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kal_002">
+      <field name="code">GOM-PHC-KAL-002</field>
+      <field name="name">Kamo Primary Health Centre</field>
+      <field name="state">Gombe State (Kaltungo LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kal_003">
+      <field name="code">GOM-PHC-KAL-003</field>
+      <field name="name">Ture Primary Health Centre</field>
+      <field name="state">Gombe State (Kaltungo LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_kwa_001">
+      <field name="code">GOM-GH-KWA-001</field>
+      <field name="name">Kwami General Hospital, Malam Sidi</field>
+      <field name="state">Gombe State (Kwami LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kwa_001">
+      <field name="code">GOM-PHC-KWA-001</field>
+      <field name="name">Malam Sidi Primary Health Centre</field>
+      <field name="state">Gombe State (Kwami LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kwa_002">
+      <field name="code">GOM-PHC-KWA-002</field>
+      <field name="name">Bojude Primary Health Centre</field>
+      <field name="state">Gombe State (Kwami LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_kwa_003">
+      <field name="code">GOM-PHC-KWA-003</field>
+      <field name="name">Komfulata Primary Health Centre</field>
+      <field name="state">Gombe State (Kwami LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_naf_001">
+      <field name="code">GOM-GH-NAF-001</field>
+      <field name="name">Nafada General Hospital</field>
+      <field name="state">Gombe State (Nafada LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_naf_001">
+      <field name="code">GOM-PHC-NAF-001</field>
       <field name="name">Nafada Primary Health Centre</field>
       <field name="state">Gombe State (Nafada LGA)</field>
     </record>
-    <record model="gnuhealth.institution" id="fac_gom_phc_ako_001">
-      <field name="code">GOM-PHC-AKO-001</field>
-      <field name="name">Akko Primary Health Centre</field>
-      <field name="state">Gombe State (Akko LGA)</field>
+    <record model="gnuhealth.institution" id="fac_gom_phc_naf_002">
+      <field name="code">GOM-PHC-NAF-002</field>
+      <field name="name">Jigawa Primary Health Centre</field>
+      <field name="state">Gombe State (Nafada LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_naf_003">
+      <field name="code">GOM-PHC-NAF-003</field>
+      <field name="name">Barwo Primary Health Centre</field>
+      <field name="state">Gombe State (Nafada LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_sho_001">
+      <field name="code">GOM-GH-SHO-001</field>
+      <field name="name">Shongom General Hospital, Boh</field>
+      <field name="state">Gombe State (Shongom LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_sho_001">
+      <field name="code">GOM-PHC-SHO-001</field>
+      <field name="name">Boh Primary Health Centre</field>
+      <field name="state">Gombe State (Shongom LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_sho_002">
+      <field name="code">GOM-PHC-SHO-002</field>
+      <field name="name">Lalaipido Primary Health Centre</field>
+      <field name="state">Gombe State (Shongom LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_sho_003">
+      <field name="code">GOM-PHC-SHO-003</field>
+      <field name="name">Filiya Primary Health Centre</field>
+      <field name="state">Gombe State (Shongom LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_gh_ydb_001">
+      <field name="code">GOM-GH-YDB-001</field>
+      <field name="name">Deba General Hospital</field>
+      <field name="state">Gombe State (Yamaltu/Deba LGA)</field>
     </record>
     <record model="gnuhealth.institution" id="fac_gom_phc_ydb_001">
       <field name="code">GOM-PHC-YDB-001</field>
-      <field name="name">Yamaltu/Deba Primary Health Centre</field>
+      <field name="name">Deba Primary Health Centre</field>
+      <field name="state">Gombe State (Yamaltu/Deba LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_ydb_002">
+      <field name="code">GOM-PHC-YDB-002</field>
+      <field name="name">Hinna Primary Health Centre</field>
+      <field name="state">Gombe State (Yamaltu/Deba LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_ydb_003">
+      <field name="code">GOM-PHC-YDB-003</field>
+      <field name="name">Gwani Primary Health Centre</field>
+      <field name="state">Gombe State (Yamaltu/Deba LGA)</field>
+    </record>
+    <record model="gnuhealth.institution" id="fac_gom_phc_ydb_004">
+      <field name="code">GOM-PHC-YDB-004</field>
+      <field name="name">Dadin Kowa Primary Health Centre</field>
       <field name="state">Gombe State (Yamaltu/Deba LGA)</field>
     </record>
   </data>

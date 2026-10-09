@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- 5 diaspora specialist profiles (T038); mirrors services/diaspora-matching. -->
+<tryton>
+    <data>
+        <record model="gnuhealth.afya.diaspora_specialist" id="spec_modibbo">
+            <field name="name">Dr. A. Modibbo</field>
+            <field name="specialty">cardiology</field>
+            <field name="languages">en, ha</field>
+            <field name="timezone">America/New_York</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.diaspora_specialist" id="spec_bello">
+            <field name="name">Dr. F. Bello</field>
+            <field name="specialty">obstetrics</field>
+            <field name="languages">en, ff</field>
+            <field name="timezone">Europe/London</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.diaspora_specialist" id="spec_okoro">
+            <field name="name">Dr. S. Okoro</field>
+            <field name="specialty">pediatrics</field>
+            <field name="languages">en</field>
+            <field name="timezone">America/Chicago</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.diaspora_specialist" id="spec_diallo">
+            <field name="name">Dr. H. Diallo</field>
+            <field name="specialty">trauma</field>
+            <field name="languages">ff, en</field>
+            <field name="timezone">Europe/Paris</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record model="gnuhealth.afya.diaspora_specialist" id="spec_adeyemi">
+            <field name="name">Dr. K. Adeyemi</field>
+            <field name="specialty">neurology</field>
+            <field name="languages">en, ha</field>
+            <field name="timezone">Canada/Eastern</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</tryton>
