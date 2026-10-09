@@ -1,0 +1,18 @@
+/* AfyaConnect dark mode — toggling via <html data-afya-dark="1"> or OS preference.
+ * SPDX-License-Identifier: Apache-2.0 */
+html[theme="afyaconnect"][data-afya-dark="1"],
+html[theme="afyaconnect"].afya-dark {
+  --afya-surface:#0b1220; --afya-card:#111c33; --afya-border:#26334f;
+  --body-bg:var(--afya-surface); --text:#e6eef7; --panel:var(--afya-card);
+  --inputs:#0f1930; --inputs-border:#26334f; --selected:rgba(20,184,166,.22);
+  --selected-text:#5eead4;
+  --afya-shadow:0 4px 24px rgba(0,0,0,.45);
+}
+html[theme="afyaconnect"][data-afya-dark="1"] body { background:var(--afya-surface); color:var(--text); }
+html[theme="afyaconnect"][data-afya-dark="1"] .panel,
+html[theme="afyaconnect"][data-afya-dark="1"] .card { background:var(--afya-card); border-color:var(--afya-border); }
+html[theme="afyaconnect"][data-afya-dark="1"] .afya-login-form { background:var(--afya-card); }
+html[theme="afyaconnect"][data-afya-dark="1"] .afya-login-langs button { background:transparent; color:var(--text); }
+@media (prefers-color-scheme:dark) {
+  html[theme="afyaconnect"]:not([data-afya-dark="0"]) { color-scheme:dark; }
+}

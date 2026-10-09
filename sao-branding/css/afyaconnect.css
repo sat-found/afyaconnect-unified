@@ -1,0 +1,71 @@
+/* AfyaConnect — premium clinical UI theme for Tryton SAO (GNU Health 5.0).
+ * Teal trust palette · Inter type · 12px radius · WCAG-AA contrast.
+ * SPDX-License-Identifier: Apache-2.0 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html[theme="afyaconnect"] {
+  --afya-teal:#0d9488; --afya-teal-dark:#0f766e; --afya-teal-light:#14b8a6;
+  --afya-teal-ink:#115e59; --afya-navy:#0f172a; --afya-slate:#334155;
+  --afya-muted:#64748b; --afya-surface:#f6f9f9; --afya-card:#ffffff;
+  --afya-border:#e2e8f0; --afya-accent:#f59e0b; --afya-danger:#dc2626;
+  --afya-ok:#059669; --afya-warn:#d97706; --afya-emerg:#dc2626;
+  --afya-radius:12px; --afya-radius-sm:8px;
+  --afya-shadow:0 4px 24px rgba(15,23,42,.08);
+  --afya-shadow-lg:0 12px 48px rgba(13,148,136,.16);
+  --afya-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --body-bg:var(--afya-surface); --text:var(--afya-navy); --link:var(--afya-teal);
+  --link-hover:var(--afya-teal-dark);
+  --navbar:linear-gradient(135deg,#0f766e 0%,#0d9488 55%,#14b8a6 100%);
+  --navbar-link:rgba(255,255,255,.92); --navbar-link-hover:#fff;
+  --border:var(--afya-border); --panel:var(--afya-card);
+  --selected:rgba(13,148,136,.12); --selected-text:var(--afya-teal-dark);
+  --inputs:var(--afya-card); --inputs-border:var(--afya-border);
+}
+html[theme="afyaconnect"], html[theme="afyaconnect"] body {
+  font-family:var(--afya-font); background:var(--afya-surface); color:var(--afya-navy);
+  -webkit-font-smoothing:antialiased;
+}
+/* Navbar */
+html[theme="afyaconnect"] .navbar { background:var(--navbar)!important; border:0;
+  box-shadow:0 2px 16px rgba(15,118,110,.35); }
+html[theme="afyaconnect"] .navbar .navbar-brand { font-weight:800; letter-spacing:.2px; color:#fff!important; }
+/* Cards & panels */
+html[theme="afyaconnect"] .panel, html[theme="afyaconnect"] .card,
+html[theme="afyaconnect"] .sao-form {
+  background:var(--afya-card); border:1px solid var(--afya-border);
+  border-radius:var(--afya-radius); box-shadow:var(--afya-shadow); }
+/* Buttons */
+html[theme="afyaconnect"] .btn-primary {
+  background:linear-gradient(135deg,var(--afya-teal-dark),var(--afya-teal));
+  border:0; border-radius:var(--afya-radius-sm); font-weight:600;
+  box-shadow:0 2px 10px rgba(13,148,136,.4); }
+html[theme="afyaconnect"] .btn-primary:hover { filter:brightness(1.07); transform:translateY(-1px); }
+/* Triage level pills — visible in list rows via .afya-pill-* classes injected by JS */
+.afya-pill { display:inline-block; padding:2px 10px; border-radius:999px;
+  font-size:12px; font-weight:700; letter-spacing:.3px; }
+.afya-pill-green { background:#dcfce7; color:#166534; }
+.afya-pill-yellow { background:#fef9c3; color:#854d0e; }
+.afya-pill-red { background:#fee2e2; color:#991b1b; }
+.afya-pill-emergency { background:#dc2626; color:#fff; animation:afya-pulse 1.6s infinite; }
+@keyframes afya-pulse { 50% { box-shadow:0 0 0 6px rgba(220,38,38,.18); } }
+/* Login */
+.afya-login-modal .modal-body { display:grid; grid-template-columns:1fr 1fr; gap:0; padding:0; overflow:hidden; }
+.afya-login-hero { background:linear-gradient(150deg,#0f766e,#14b8a6); color:#fff;
+  padding:48px 36px; display:flex; flex-direction:column; justify-content:center; }
+.afya-login-logo svg { width:56px; height:56px; }
+.afya-login-title { font-size:28px; font-weight:800; margin:16px 0 4px; }
+.afya-login-tagline { opacity:.85; font-size:14px; }
+.afya-login-form { padding:40px 36px; }
+.afya-login-langs { display:flex; gap:8px; margin-top:18px; }
+.afya-login-langs button { border:1px solid var(--afya-border); background:#fff;
+  border-radius:999px; padding:4px 14px; font-size:12px; font-weight:600; cursor:pointer; }
+.afya-login-langs button[aria-pressed="true"] { background:var(--afya-teal); color:#fff; border-color:var(--afya-teal); }
+/* Focus visibility (a11y) */
+html[theme="afyaconnect"] :focus-visible { outline:3px solid rgba(20,184,166,.55); outline-offset:2px; }
+/* Responsive */
+@media (max-width:720px) {
+  .afya-login-modal .modal-body { grid-template-columns:1fr; }
+  .afya-login-hero { padding:28px 24px; }
+  .afya-login-form { padding:24px; }
+}
+@media (prefers-reduced-motion:reduce) { .afya-pill-emergency { animation:none; } }
