@@ -39,8 +39,6 @@ if [ ! -f /opt/gnuhealth/sao/index.html ]; then
 fi
 
 if [ ! -f /var/lib/tryton/.afya-init-done ]; then
-  echo "Refreshing Tryton module list..."
-  trytond-admin -c "$CONF" -d "$GNUHEALTH_DB_NAME" -m
   echo "Initializing Afya module set (dependencies auto-activated)..."
   trytond-admin -c "$CONF" -d "$GNUHEALTH_DB_NAME" \
     --email "$TRYTON_ADMIN_EMAIL" \
@@ -48,6 +46,8 @@ if [ ! -f /var/lib/tryton/.afya-init-done ]; then
        gnuhealth_afya_dispatch gnuhealth_afya_diaspora gnuhealth_afya_analytics \
        mosquito_registration \
     --activate-dependencies
+  echo "Refreshing Tryton module list..."
+  trytond-admin -c "$CONF" -d "$GNUHEALTH_DB_NAME" -m
   touch /var/lib/tryton/.afya-init-done
   echo "Database initialized."
 fi
