@@ -1,4 +1,6 @@
-name: afyaconnect
+# Isolated project name: sibling prototype stacks (afyaconnect, gnu-heath)
+# run their own postgres containers — do not share a compose project with them.
+name: afyaconnect-unified
 services:
   postgres:
     image: postgres:15-alpine
