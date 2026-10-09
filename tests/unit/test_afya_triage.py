@@ -7,7 +7,7 @@ from triage_logic import (
 
 def good(level='red'):
     return json.dumps({'level': level, 'confidence': 0.9,
-        'red_flags': ['chest pain'], 'model_version': 'v1'})
+                       'red_flags': ['chest pain'], 'model_version': 'v1'})
 
 
 def test_rationale_valid():
@@ -22,10 +22,10 @@ def test_rationale_rejections():
         validate_rationale(json.dumps({'level': 'red'}))
     with pytest.raises(Exception):
         validate_rationale(json.dumps({'level': 'purple', 'confidence': 0.5,
-            'red_flags': [], 'model_version': 'v1'}))
+                                       'red_flags': [], 'model_version': 'v1'}))
     with pytest.raises(Exception):
         validate_rationale(json.dumps({'level': 'red', 'confidence': 9,
-            'red_flags': [], 'model_version': 'v1'}))
+                                       'red_flags': [], 'model_version': 'v1'}))
 
 
 def test_keywords_multilingual_case_insensitive():

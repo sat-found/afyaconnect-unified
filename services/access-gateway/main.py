@@ -39,25 +39,25 @@ def suggest_triage(clean_text, session_id):
         try:
             import httpx
             resp = httpx.post('%s/triage' % TRIAGE_AGENT_URL,
-                json={'text': clean_text, 'session_id': session_id},
-                timeout=TRIAGE_TIMEOUT_S)
+                              json={'text': clean_text, 'session_id': session_id},
+                              timeout=TRIAGE_TIMEOUT_S)
             resp.raise_for_status()
             return dict(resp.json(), source='ai-triage-agent')
         except Exception as exc:  # noqa: BLE001 — fallback must never break intake
             logger.warning('triage-agent unreachable (%s); using local fallback', exc)
     level, conf, flags = classify(clean_text)
     return {'session_id': session_id, 'triage_level': level,
-        'triage_confidence': conf,
-        'clinical_rationale': {'level': level, 'confidence': conf,
-            'red_flags': flags, 'model_version': 'afya-triage-v1-local'},
-        'human_review_required': level == 'emergency',
-        'source': 'local-fallback'}
+            'triage_confidence': conf,
+            'clinical_rationale': {'level': level, 'confidence': conf,
+                                   'red_flags': flags, 'model_version': 'afya-triage-v1-local'},
+            'human_review_required': level == 'emergency',
+            'source': 'local-fallback'}
 
 
 @app.get('/healthz')
 def healthz():
     return {'ok': True, 'service': 'access-gateway',
-        'triage_agent': TRIAGE_AGENT_URL or 'local-fallback'}
+            'triage_agent': TRIAGE_AGENT_URL or 'local-fallback'}
 
 
 @app.post('/ussd')
@@ -91,25 +91,6 @@ def inbound(msg: Inbound, channel: str = 'ussd'):
 
 @app.get('/', response_class=HTMLResponse)
 def demo_ui():
-    return """<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AfyaConnect — Access Gateway</title>
-<style>:root{--teal:#0d9488;--navy:#0f172a;--bg:#f6f9f9}*{box-sizing:border-box}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--navy);margin:0}
-header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;padding:28px 20px}
-main{max-width:720px;margin:-24px auto 40px;background:#fff;border-radius:16px;
-box-shadow:0 12px 48px rgba(13,148,136,.16);padding:28px}
-textarea,select{width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:10px;font-size:15px}
-button{background:var(--teal);color:#fff;border:0;border-radius:10px;padding:12px 20px;
-font-weight:700;cursor:pointer}button:hover{filter:brightness(1.08)}
-pre{background:#0f172a;color:#5eead4;border-radius:12px;padding:16px;overflow:auto}
-.langs{display:flex;gap:8px;margin:12px 0}.langs button{background:#eef2f2;color:var(--navy)}</style></head>
-<body><header><h1>AfyaConnect · Access Gateway</h1>
-<p>USSD / SMS / Voice triage entry — EN · HA · FF</p></header>
-<main><div class="langs"><button>English</button><button>Hausa</button><button>Fulfulde</button></div>
-<select id="ch"><option value="ussd">USSD</option><option value="sms">SMS</option><option value="voice">Voice</option></select>
-<p><textarea id="t" rows="3">Ba iya numfashi, ciwon kirji. Call 08031234567</textarea></p>
-<p><button onclick="send()">Triage →</button></p><pre id="o">…</pre></main>
-<script>async function send(){const r=await fetch('/ussd',{method:'POST',
-headers:{'Content-Type':'application/json'},body:JSON.stringify({channel:ch.value,text:t.value})});
-o.textContent=JSON.stringify(await r.json(),null,2)}</script></body></html>"""
+    here = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(here, 'demo.html'), encoding='utf-8') as fh:
+        return fh.read()

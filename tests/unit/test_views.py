@@ -36,7 +36,7 @@ def _views():
             if rec.get('model') != 'ir.ui.view':
                 continue
             vals = {f.get('name'): (f.text or '').strip()
-                for f in rec.iter('field') if f.get('name') in ('model', 'type', 'name')}
+                    for f in rec.iter('field') if f.get('name') in ('model', 'type', 'name')}
             arch = [f for f in rec.iter('field') if f.get('name') == 'arch']
             out.append((xml, rec.get('id'), vals, arch[0] if arch else None))
     return out
@@ -60,7 +60,7 @@ def test_arch_fields_exist_on_model():
         for f in anode.iter('field'):
             if f.get('name') not in fields | IMPLICIT_FIELDS:
                 problems.append('%s#%s: unknown field %s on %s'
-                    % (os.path.basename(xml), rid, f.get('name'), model))
+                                % (os.path.basename(xml), rid, f.get('name'), model))
     assert not problems, problems
 
 
@@ -74,14 +74,14 @@ def test_arch_buttons_exist_and_guarded():
             name = b.get('name')
             if name and name not in methods:
                 problems.append('%s#%s: button %s has no method on %s'
-                    % (os.path.basename(xml), rid, name, model))
+                                % (os.path.basename(xml), rid, name, model))
             if (model in ('gnuhealth.afya.triage_session',
-                    'gnuhealth.afya.dispatch_request')
+                          'gnuhealth.afya.dispatch_request')
                     and name not in ('complete', 'begin', 'close',
-                        'mark_triaged', 'en_route', 'arrive',
-                        'complete_dispatch', 'cancel', 'escalate', 'reviewed')
+                                     'mark_triaged', 'en_route', 'arrive',
+                                     'complete_dispatch', 'cancel', 'escalate', 'reviewed')
                     and not b.get('groups')):
                 unguarded.append('%s#%s: button %s lacks groups='
-                    % (os.path.basename(xml), rid, name))
+                                 % (os.path.basename(xml), rid, name))
     assert not problems, problems
     assert not unguarded, unguarded

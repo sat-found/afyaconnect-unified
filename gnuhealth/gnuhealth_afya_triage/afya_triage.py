@@ -14,13 +14,17 @@ from trytond.transaction import Transaction
 from trytond.modules.gnuhealth_afya_core.afya_utils import redact_phone_numbers
 
 try:
-    from trytond.modules.gnuhealth_afya_triage.triage_logic import (  # noqa: F401
+    from trytond.modules.gnuhealth_afya_triage.triage_logic import (
         TRIAGE_LEVELS, RATIONALE_REQUIRED_KEYS, validate_rationale as _validate,
         detect_emergency_keywords, needs_human_review)
 except ImportError:  # local test path
-    from .triage_logic import (  # noqa: F401
+    from .triage_logic import (
         TRIAGE_LEVELS, RATIONALE_REQUIRED_KEYS, validate_rationale as _validate,
         detect_emergency_keywords, needs_human_review)
+
+# Re-exported for Tryton callers; __all__ keeps pyflakes quiet.
+__all__ = ['TRIAGE_LEVELS', 'RATIONALE_REQUIRED_KEYS', 'detect_emergency_keywords',
+           'needs_human_review', 'TriageSession', 'EmergencyKeyword']
 
 
 def validate_rationale(value):
@@ -111,7 +115,7 @@ class TriageSession(Workflow, ModelSQL, ModelView):
         cls._buttons.update({
             'complete': {'invisible': ~Eval('state').in_(['draft'])},
             'review': {'invisible': ~(Eval('state').in_(['completed'])
-                & Eval('human_review_required', False))},
+                                      & Eval('human_review_required', False))},
         })
 
     @classmethod

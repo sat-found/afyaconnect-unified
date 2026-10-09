@@ -9,9 +9,8 @@ test: ## Fast unit + integration suite (no server needed)
 test-cov: ## Suite with coverage report
 	python3 -m pytest tests/unit tests/integration --cov --cov-report=term-missing 2>/dev/null || python3 -m pytest tests/unit tests/integration
 
-lint: ## flake8 + XML well-formedness
-	python3 -m flake8 gnuhealth services scripts tests --max-line-length=100 --extend-ignore=E501,W503,E128,E131,E402
-	python3 -c "import xml.dom.minidom,glob; [xml.dom.minidom.parse(f) for f in glob.glob('gnuhealth/**/*.xml',recursive=True)+glob.glob('data/*.xml')]"
+lint: ## pycodestyle + pyflakes (same script CI runs)
+	bash scripts/lint.sh
 
 security: ## bandit + secret scan
 	bash scripts/security.sh

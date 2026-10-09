@@ -8,8 +8,8 @@ from trytond.modules.gnuhealth_afya_core.afya_utils import (
 
 
 def build_outbox_event(event_id, event_type, triage_level, channel,
-        language, sector_count, lga_count, state_count,
-        threshold=10, created_at=None):
+                       language, sector_count, lga_count, state_count,
+                       threshold=10, created_at=None):
     """Build a validated BigQuery-safe outbox dict. Pure function — testable."""
     from datetime import datetime
     level, code = coarsen_region(
@@ -49,7 +49,7 @@ class AnalyticsOutbox(ModelSQL, ModelView):
 
     @classmethod
     def create_from_triage(cls, triage, sector_count, lga_count,
-            state_count, threshold=10):
+                           state_count, threshold=10):
         event = build_outbox_event(
             'triage-%s' % triage.session_id, 'triage',
             triage.triage_level or 'unknown', 'ussd',
@@ -66,7 +66,7 @@ class AnalyticsOutbox(ModelSQL, ModelView):
 
     @classmethod
     def create_from_dispatch(cls, dispatch, sector_count, lga_count,
-            state_count, threshold=10):
+                             state_count, threshold=10):
         event = build_outbox_event(
             'dispatch-%s' % dispatch.dispatch_ref, 'dispatch',
             'unknown', 'system', 'en',

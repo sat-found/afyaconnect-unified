@@ -22,18 +22,18 @@ def load(name):
 def test_gateway_suggests_triage_with_fallback_source():
     c = load('access-gateway')
     body = c.post('/ussd', json={'channel': 'ussd',
-        'text': 'patient unconscious, severe bleeding'}).json()
+                                 'text': 'patient unconscious, severe bleeding'}).json()
     assert body['triage']['triage_level'] == 'emergency'
     assert body['triage']['source'] in ('ai-triage-agent', 'local-fallback')
     assert body['next'] == 'human-review'
     assert 'X-Request-ID' in c.post('/ussd',
-        json={'channel': 'ussd', 'text': 'hi'}).headers
+                                    json={'channel': 'ussd', 'text': 'hi'}).headers
 
 
 def test_request_id_echo_and_cors():
     c = load('ai-triage-agent')
     r = c.post('/triage', json={'text': 'hello'},
-        headers={'X-Request-ID': 'req-123', 'Origin': 'http://localhost:8091'})
+               headers={'X-Request-ID': 'req-123', 'Origin': 'http://localhost:8091'})
     assert r.headers['X-Request-ID'] == 'req-123'
     assert 'access-control-allow-origin' in {k.lower() for k in r.headers}
 
@@ -49,7 +49,7 @@ def test_shared_classify_consistency():
 
 def test_service_roots():
     for name in ['ai-triage-agent', 'fhir-adapter',
-            'analytics-exporter', 'diaspora-matching']:
+                 'analytics-exporter', 'diaspora-matching']:
         r = load(name).get('/')
         assert r.status_code == 200
         assert 'service' in r.json()

@@ -38,7 +38,7 @@ def triage(inp: TriageIn):
     clean = redact_phones(inp.text)
     level, conf, flags = classify(clean)
     rationale = {'level': level, 'confidence': conf, 'red_flags': flags,
-        'model_version': 'afya-triage-v1'}
+                 'model_version': 'afya-triage-v1'}
     human_review = level == 'emergency'
     return {
         'session_id': inp.session_id or ('TRI-%s' % uuid.uuid4().hex[:12]),

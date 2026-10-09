@@ -22,8 +22,8 @@ def test_coarsen_cascade():
 
 def test_analytics_allowlist_and_rejections():
     good = {'event_id': 'a', 'event_type': 'triage', 'triage_level': 'red',
-        'coarse_region': 'kano', 'region_level': 'lga', 'channel': 'ussd',
-        'language': 'ha', 'created_at': '2026-01-01', 'k_count': 15}
+            'coarse_region': 'kano', 'region_level': 'lga', 'channel': 'ussd',
+            'language': 'ha', 'created_at': '2026-01-01', 'k_count': 15}
     assert validate_analytics_payload(good) is True
     assert anonymize_payload({**good, 'symptoms_raw': 'x'}) == good
     with pytest.raises(ValueError):

@@ -29,22 +29,23 @@ def test_gateway_to_triage_to_outbox():
     ex = _client('analytics-exporter')
 
     inbound = gw.post('/ussd', json={'channel': 'ussd',
-        'text': 'Ba iya numfashi, ciwon kirji 08031234567'}).json()
+                                     'text': 'Ba iya numfashi, ciwon kirji 08031234567'}).json()
     assert inbound['language'] == 'ha'
     assert '[PHONE_REDACTED]' in inbound['redacted_text']
 
     tri = ta.post('/triage', json={'text': inbound['redacted_text'],
-        'session_id': 'TRI-DEMO-1'}).json()
+                                   'session_id': 'TRI-DEMO-1'}).json()
     assert tri['triage_level'] == 'emergency'
     assert tri['human_review_required'] is True
     import json as _json
     validate_rationale(_json.dumps(tri['clinical_rationale']))
 
     level, _ = coarsen_region(3, 12, 50)
-    out = ex.post('/export', json={'event_id': 'triage-TRI-DEMO-1',
-        'event_type': 'triage', 'triage_level': tri['triage_level'],
-        'coarse_region': 'gombe', 'region_level': level, 'channel': 'ussd',
-        'language': 'ha', 'created_at': '2026-01-01', 'k_count': 12}).json()
+    payload = {'event_id': 'triage-TRI-DEMO-1', 'event_type': 'triage',
+               'triage_level': tri['triage_level'], 'coarse_region': 'gombe',
+               'region_level': level, 'channel': 'ussd', 'language': 'ha',
+               'created_at': '2026-01-01', 'k_count': 12}
+    out = ex.post('/export', json=payload).json()
     assert out['exported'] is True
 
 

@@ -7,7 +7,7 @@ from trytond.wizard import Wizard, StateTransition, StateView, Button
 
 
 def match_score(specialist_specialty, needed_specialty,
-        specialist_langs, needed_lang):
+                specialist_langs, needed_lang):
     """Mock matching score 0..1. Pure function — unit-testable."""
     score = 0.3
     if specialist_specialty == needed_specialty:

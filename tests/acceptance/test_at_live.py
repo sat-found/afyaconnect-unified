@@ -36,8 +36,8 @@ pytestmark = pytest.mark.skipif(
 
 @services
 def test_at_acc_01_ussd_under_4_interactions():
-    r = httpx.post('%s/ussd' % GW, json={'channel': 'ussd',
-        'text': 'zazzabi mai tsanani, taimaka'}, timeout=TIMEOUT).json()
+    payload = {'channel': 'ussd', 'text': 'zazzabi mai tsanani, taimaka'}
+    r = httpx.post('%s/ussd' % GW, json=payload, timeout=TIMEOUT).json()
     assert r['interactions_used'] < 4
     assert r['within_4_interactions'] is True
 
@@ -52,7 +52,7 @@ def test_at_nav_01_emergency_concordance_and_schema():
     ]
     for text, expected in cases:
         body = httpx.post('%s/triage' % TRIAGE, json={'text': text},
-            timeout=TIMEOUT).json()
+                          timeout=TIMEOUT).json()
         assert body['triage_level'] == expected, text
         assert set(body['clinical_rationale']) == {
             'level', 'confidence', 'red_flags', 'model_version'}
@@ -63,10 +63,10 @@ def test_at_nav_01_emergency_concordance_and_schema():
 def test_at_lang_01_trilingual_parity():
     levels = {}
     for lang, text in [('en', 'chest pain, cannot breathe'),
-            ('ha', 'ciwon kirji, ba iya numfashi'),
-            ('ff', 'a numaani')]:
+                       ('ha', 'ciwon kirji, ba iya numfashi'),
+                       ('ff', 'a numaani')]:
         body = httpx.post('%s/triage' % TRIAGE,
-            json={'text': text, 'language': lang}, timeout=TIMEOUT).json()
+                          json={'text': text, 'language': lang}, timeout=TIMEOUT).json()
         levels[lang] = body['triage_level']
     assert levels == {'en': 'emergency', 'ha': 'emergency', 'ff': 'emergency'}
 
@@ -74,7 +74,7 @@ def test_at_lang_01_trilingual_parity():
 @services
 def test_at_safe_01_emergency_routes_to_human_review():
     body = httpx.post('%s/ussd' % GW, json={'channel': 'voice',
-        'text': 'patient unconscious'}, timeout=TIMEOUT).json()
+                                            'text': 'patient unconscious'}, timeout=TIMEOUT).json()
     assert body['triage']['human_review_required'] is True
     assert body['next'] == 'human-review'
 
@@ -85,7 +85,7 @@ def test_gateway_forwards_to_triage_agent_when_configured():
     if health.get('triage_agent') == 'local-fallback':
         pytest.skip('gateway has no triage-agent configured')
     body = httpx.post('%s/ussd' % GW, json={'channel': 'ussd',
-        'text': 'chest pain'}, timeout=TIMEOUT).json()
+                                            'text': 'chest pain'}, timeout=TIMEOUT).json()
     assert body['triage']['source'] == 'ai-triage-agent'
 
 
@@ -93,7 +93,7 @@ def test_gateway_forwards_to_triage_agent_when_configured():
 def test_at_disp_01_pipeline_latency_windows():
     t0 = time.time()
     gw = httpx.post('%s/ussd' % GW, json={'channel': 'ussd',
-        'text': 'severe bleeding, help'}, timeout=TIMEOUT).json()
+                                          'text': 'severe bleeding, help'}, timeout=TIMEOUT).json()
     elapsed = time.time() - t0
     assert gw['triage']['triage_level'] == 'emergency'
     assert elapsed < 30, 'Window B (escalation->candidate budget 30s): %.1fs' % elapsed
@@ -102,8 +102,8 @@ def test_at_disp_01_pipeline_latency_windows():
 
 @services
 def test_at_priv_01_no_pii_in_pipeline():
-    gw = httpx.post('%s/sms' % GW, json={'channel': 'sms',
-        'text': 'help 08031234567 or +2348031234567'}, timeout=TIMEOUT).json()
+    payload = {'channel': 'sms', 'text': 'help 08031234567 or +2348031234567'}
+    gw = httpx.post('%s/sms' % GW, json=payload, timeout=TIMEOUT).json()
     assert '08031234567' not in gw['redacted_text']
     assert '+2348031234567' not in gw['redacted_text']
     bad = httpx.post('%s/export' % EXPORT, json={

@@ -104,9 +104,8 @@ def write_patients_workers():
 def main():
     os.makedirs(DATA, exist_ok=True)
     if '--apply' in sys.argv:
-        try:
-            import trytond  # noqa
-        except ImportError:
+        import importlib.util
+        if importlib.util.find_spec('trytond') is None:
             print('trytond not installed; wrote XML only. Run inside app container with --apply.')
             sys.exit(2)
         print('apply mode: use Proteus/import with generated XML (idempotent by XML ID).')
@@ -114,7 +113,7 @@ def main():
     n_k = write_keywords()
     n_p, n_w = write_patients_workers()
     print('wrote %d facilities, %d keywords, %d patients, %d workers -> %s'
-        % (n_f, n_k, n_p, n_w, DATA))
+          % (n_f, n_k, n_p, n_w, DATA))
 
 
 if __name__ == '__main__':

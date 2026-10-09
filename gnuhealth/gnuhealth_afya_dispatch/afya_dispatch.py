@@ -104,7 +104,7 @@ class DispatchRequest(Workflow, ModelSQL, ModelView):
         for req in requests:
             resp = naers_accept_stub({'dispatch_ref': req.dispatch_ref})
             logger.info('NAERS stub accepted %s -> %s',
-                req.dispatch_ref, resp['assignment_ref'])
+                        req.dispatch_ref, resp['assignment_ref'])
 
     @classmethod
     @Workflow.transition('en_route')

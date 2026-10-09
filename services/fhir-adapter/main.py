@@ -28,7 +28,7 @@ def healthz():
 @app.get('/')
 def info():
     return {'service': 'fhir-adapter', 'docs': '/docs',
-        'resources': ['Patient', 'Condition', 'Location']}
+            'resources': ['Patient', 'Condition', 'Location']}
 
 
 @app.get('/fhir/{resource}')
@@ -40,4 +40,4 @@ def read(resource: str, response: Response):
     latency = (time.time() - t0) * 1000
     response.headers['X-Read-Latency-ms'] = str(round(latency, 1))
     return {'resourceType': 'Bundle', 'type': 'searchset',
-        'entry': [{'resource': {'resourceType': resource, **r}} for r in DEMO[resource]]}
+            'entry': [{'resource': {'resourceType': resource, **r}} for r in DEMO[resource]]}

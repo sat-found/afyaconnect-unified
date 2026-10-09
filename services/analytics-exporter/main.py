@@ -38,7 +38,7 @@ def healthz():
 @app.get('/')
 def info():
     return {'service': 'analytics-exporter', 'docs': '/docs',
-        'exported': len(EXPORTED)}
+            'exported': len(EXPORTED)}
 
 
 @app.post('/export')

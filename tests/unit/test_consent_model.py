@@ -8,7 +8,7 @@ SRC = open(os.path.join(REPO, 'gnuhealth/gnuhealth_afya_core/afya_core.py')).rea
 
 def test_consent_selections():
     for token in ['emergency_limited_processing', 'health_worker', 'analytics',
-            'notes_category', 'party.party']:
+                  'notes_category', 'party.party']:
         assert token in SRC
 
 

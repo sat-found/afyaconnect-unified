@@ -17,7 +17,7 @@ KIT_TEMPLATES = [
 ]
 
 DISPATCH_STATES = ['candidate', 'approved', 'submitted', 'en_route', 'arrived',
-    'completed', 'cancelled', 'rejected', 'failed', 'returned']
+                   'completed', 'cancelled', 'rejected', 'failed', 'returned']
 
 DISPATCH_TRANSITIONS = {
     ('candidate', 'approved'), ('candidate', 'rejected'), ('candidate', 'cancelled'),

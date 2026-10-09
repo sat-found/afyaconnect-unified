@@ -13,10 +13,10 @@ ANALYTICS_ALLOWED = frozenset({
 FREE_TEXT = frozenset({'symptoms_raw', 'notes', 'rationale', 'summary', 'transcript'})
 
 EMERGENCY_TERMS = ['unconscious', 'cannot breathe', 'ba iya numfashi', 'severe bleeding',
-    'jini mai yawa', 'chest pain', 'ciwon kirji', 'stroke', 'seizure', 'choking',
-    'a numaani', 'heart attack', 'pregnancy bleeding', 'labour pain']
+                   'jini mai yawa', 'chest pain', 'ciwon kirji', 'stroke', 'seizure', 'choking',
+                   'a numaani', 'heart attack', 'pregnancy bleeding', 'labour pain']
 RED_TERMS = ['high fever', 'zazzabi', 'convulsion', 'severe headache', 'ciwon kai',
-    'difficulty breathing', 'allergic reaction']
+             'difficulty breathing', 'allergic reaction']
 
 
 def redact_phones(text):
@@ -97,8 +97,8 @@ def add_standard_middleware(app, service):
             response = await call_next(request)
             response.headers['X-Request-ID'] = rid
             logger.info('%s %s -> %s (%.1fms)',
-                request.method, request.url.path,
-                response.status_code, (time.time() - t0) * 1000)
+                        request.method, request.url.path,
+                        response.status_code, (time.time() - t0) * 1000)
             return response
 
     app.add_middleware(RequestContextMiddleware)

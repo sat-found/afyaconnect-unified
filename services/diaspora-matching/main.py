@@ -14,11 +14,16 @@ app = FastAPI(title='Afya Diaspora Matching', version='1.0.0')
 add_standard_middleware(app, 'diaspora-matching')
 
 SPECIALISTS = [
-    {'name': 'Dr. A. Modibbo', 'specialty': 'cardiology', 'languages': ['en', 'ha'], 'tz': 'America/New_York'},
-    {'name': 'Dr. F. Bello', 'specialty': 'obstetrics', 'languages': ['en', 'ff'], 'tz': 'Europe/London'},
-    {'name': 'Dr. S. Okoro', 'specialty': 'pediatrics', 'languages': ['en'], 'tz': 'America/Chicago'},
-    {'name': 'Dr. H. Diallo', 'specialty': 'trauma', 'languages': ['ff', 'en'], 'tz': 'Europe/Paris'},
-    {'name': 'Dr. K. Adeyemi', 'specialty': 'neurology', 'languages': ['en', 'ha'], 'tz': 'Canada/Eastern'},
+    {'name': 'Dr. A. Modibbo', 'specialty': 'cardiology',
+        'languages': ['en', 'ha'], 'tz': 'America/New_York'},
+    {'name': 'Dr. F. Bello', 'specialty': 'obstetrics',
+        'languages': ['en', 'ff'], 'tz': 'Europe/London'},
+    {'name': 'Dr. S. Okoro', 'specialty': 'pediatrics',
+        'languages': ['en'], 'tz': 'America/Chicago'},
+    {'name': 'Dr. H. Diallo', 'specialty': 'trauma',
+        'languages': ['ff', 'en'], 'tz': 'Europe/Paris'},
+    {'name': 'Dr. K. Adeyemi', 'specialty': 'neurology',
+        'languages': ['en', 'ha'], 'tz': 'Canada/Eastern'},
 ]
 
 
@@ -35,7 +40,7 @@ def healthz():
 @app.get('/')
 def info():
     return {'service': 'diaspora-matching', 'docs': '/docs',
-        'specialists': len(SPECIALISTS)}
+            'specialists': len(SPECIALISTS)}
 
 
 @app.post('/match')

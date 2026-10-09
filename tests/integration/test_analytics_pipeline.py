@@ -13,8 +13,8 @@ def test_analytics_pipeline_k_cascade():
     assert coarsen_region(12, 30, 90) == ('sector', None)
     assert coarsen_region(2, 2, 2) == ('suppressed', 'INSUFFICIENT_VOLUME')
     ev = {'event_id': 'd1', 'event_type': 'dispatch', 'triage_level': 'unknown',
-        'coarse_region': 'suppressed', 'region_level': 'suppressed',
-        'channel': 'system', 'language': 'en', 'created_at': 't', 'k_count': 2}
+          'coarse_region': 'suppressed', 'region_level': 'suppressed',
+          'channel': 'system', 'language': 'en', 'created_at': 't', 'k_count': 2}
     assert validate_analytics_payload(ev) is True
 
 
@@ -22,6 +22,6 @@ def test_diaspora_scoring_shape():
     import importlib.util
     spec = importlib.util.spec_from_file_location(
         'diaspora_mod', os.path.join(ROOT, 'gnuhealth',
-            'gnuhealth_afya_diaspora', 'afya_diaspora.py'))
+                                     'gnuhealth_afya_diaspora', 'afya_diaspora.py'))
     src = open(spec.origin).read()
     assert 'match_score' in src and 'ConsultationSession' in src
