@@ -1,0 +1,8 @@
+name: po-export
+on: [push, pull_request]
+jobs:
+  check-xml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -c "import xml.dom.minidom,glob; [xml.dom.minidom.parse(f) for f in glob.glob('gnuhealth/**/*.xml',recursive=True)+glob.glob('data/*.xml')]; print('XML OK')"

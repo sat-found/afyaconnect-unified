@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: afyaconnect-unified
+Upstream-Contact: AfyaConnect Team
+Source: https://github.com/sat-found/afyaconnect-unified
+
+Files: gnuhealth/* data/* specs/*
+Copyright: 2024-2026 GNU Health Contributors, AfyaConnect Contributors
+License: GPL-3.0-or-later
+
+Files: services/* sao-branding/* scripts/setup/* dashboards/*
+Copyright: 2024-2026 AfyaConnect Contributors
+License: Apache-2.0
+
+License: GPL-3.0-or-later
+ See /usr/share/common-licenses/GPL-3 for the full text.
+
+License: Apache-2.0
+ See /usr/share/common-licenses/Apache-2.0 for the full text.

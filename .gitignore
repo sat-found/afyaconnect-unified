@@ -1,0 +1,32 @@
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.envrc
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+tmp/
+*.log
+fail.log
+fail_short.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+# Secrets — never commit
+docker/gnuhealth/trytond.conf
+**/trytond.conf
+.env.*
+secrets/
+# Temp clones
+temp-afya/

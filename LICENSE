@@ -1,0 +1,11 @@
+GNU GENERAL PUBLIC LICENSE v3 + APACHE 2.0 — DUAL LICENSE NOTICE
+
+Tryton/GNU Health modules (gnuhealth/, data/, specs/): GPL-3.0-or-later.
+Cloud Run services (services/), branding (sao-branding/), setup scripts
+(scripts/setup/), dashboards (dashboards/): Apache-2.0.
+
+Full texts:
+- GPL-3.0: https://www.gnu.org/licenses/gpl-3.0.html
+- Apache-2.0: https://www.apache.org/licenses/LICENSE-2.0
+
+SPDX identifiers are declared per-file. See .reuse/dep5.
