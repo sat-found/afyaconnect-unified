@@ -9,6 +9,7 @@ def register():
         afya_diaspora.DiasporaSpecialist,
         afya_diaspora.CaseBrief,
         afya_diaspora.ConsultationSession,
+        afya_diaspora.ConsultationEvent,
         afya_diaspora.SpecialistMatch,
         afya_diaspora.MatchSpecialistStart,
         afya_diaspora.GenerateCaseBriefStart,

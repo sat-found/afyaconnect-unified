@@ -3,30 +3,15 @@
 """Analytics outbox with k-anonymity cascade + schema validation."""
 from trytond.model import ModelSQL, ModelView, fields
 
-from trytond.modules.gnuhealth_afya_core.afya_utils import (
-    anonymize_payload, coarsen_region, validate_analytics_payload)
+try:
+    from trytond.modules.gnuhealth_afya_analytics.analytics_logic import (
+        build_outbox_event, build_snapshot_values)
+except ImportError:  # local test path
+    from .analytics_logic import build_outbox_event, build_snapshot_values
 
-
-def build_outbox_event(event_id, event_type, triage_level, channel,
-                       language, sector_count, lga_count, state_count,
-                       threshold=10, created_at=None):
-    """Build a validated BigQuery-safe outbox dict. Pure function — testable."""
-    from datetime import datetime
-    level, code = coarsen_region(
-        sector_count, lga_count, state_count, threshold)
-    payload = {
-        'event_id': event_id,
-        'event_type': event_type,
-        'triage_level': triage_level,
-        'coarse_region': code or level,
-        'region_level': level,
-        'channel': channel,
-        'language': language,
-        'created_at': created_at or datetime.utcnow().isoformat() + 'Z',
-        'k_count': max(sector_count, lga_count, state_count),
-    }
-    validate_analytics_payload(payload)
-    return anonymize_payload(payload)
+# Re-exported for Tryton callers; __all__ keeps pyflakes quiet.
+__all__ = ['build_outbox_event', 'build_snapshot_values',
+           'AnalyticsOutbox', 'ResourceSnapshot']
 
 
 class AnalyticsOutbox(ModelSQL, ModelView):
@@ -95,3 +80,12 @@ class ResourceSnapshot(ModelSQL, ModelView):
     facility_name = fields.Char('Facility Name (coarse)')
     beds_available = fields.Integer('Beds Available')
     ambulances_available = fields.Integer('Ambulances Available')
+
+    @classmethod
+    def create_snapshot(cls, facility_name, beds_available,
+                        ambulances_available, facility=None):
+        values = build_snapshot_values(
+            facility_name, beds_available, ambulances_available)
+        if facility is not None:
+            values['facility'] = facility
+        return cls.create([values])

@@ -5,16 +5,17 @@ from trytond.model import ModelSQL, ModelView, Workflow, fields
 from trytond.pool import Pool
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 
+try:
+    from trytond.modules.gnuhealth_afya_diaspora.diaspora_logic import (
+        CONSULT_EVENT_TYPES, is_valid_consult_event, match_score)
+except ImportError:  # local test path
+    from .diaspora_logic import (
+        CONSULT_EVENT_TYPES, is_valid_consult_event, match_score)
 
-def match_score(specialist_specialty, needed_specialty,
-                specialist_langs, needed_lang):
-    """Mock matching score 0..1. Pure function — unit-testable."""
-    score = 0.3
-    if specialist_specialty == needed_specialty:
-        score += 0.5
-    if needed_lang in (specialist_langs or []):
-        score += 0.2
-    return round(min(score, 1.0), 2)
+# Re-exported for Tryton callers; __all__ keeps pyflakes quiet.
+__all__ = ['CONSULT_EVENT_TYPES', 'is_valid_consult_event', 'match_score',
+           'DiasporaSpecialist', 'CaseBrief', 'ConsultationSession',
+           'ConsultationEvent', 'SpecialistMatch']
 
 
 class DiasporaSpecialist(ModelSQL, ModelView):
@@ -91,6 +92,24 @@ class ConsultationSession(Workflow, ModelSQL, ModelView):
     @Workflow.transition('closed')
     def close(cls, sessions):
         pass
+
+
+class ConsultationEvent(ModelSQL, ModelView):
+    "Consultation Event Log (audio-only scaffold — categorical, no recordings)"
+    __name__ = 'gnuhealth.afya.consultation_event'
+    _rec_name = 'event_type'
+
+    consultation = fields.Many2One(
+        'gnuhealth.afya.consultation_session', 'Consultation', required=True)
+    event_type = fields.Selection(
+        [(e, e.replace('_', ' ').title()) for e in CONSULT_EVENT_TYPES],
+        'Event Type', required=True, sort=False)
+    event_at = fields.DateTime('Event At')
+
+    @staticmethod
+    def default_event_at():
+        from datetime import datetime
+        return datetime.now()
 
 
 class SpecialistMatch(ModelSQL, ModelView):

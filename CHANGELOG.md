@@ -14,6 +14,10 @@
 - `make smoke`: all 7 Tryton modules import clean against real trytond 7.0.58;
   namespaces, fields, tryton.cfg references asserted.
 - Real idempotent GCP bootstrap commands (02–10).
+- Plan features: 10 kit templates + 5 diaspora specialists module seeds (T035/T038),
+  `ResolvePostHocConsent` wizard with wizard-only guard (T009), 50 Gombe facilities
+  across 11 LGAs (T053), `ConsultationEvent` audio scaffold + `match_score` logic
+  module (T039), `ResourceSnapshot.create_snapshot` + `analytics_logic` module (T040).
 ### Fixed
 - `.env.example` no longer git-ignored; Dockerfile cleanup.
 - analytics-exporter: strict `extra='forbid'` schema — free-text keys now 422
