@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="ir.ui.menu" id="menu_afya">
+            <field name="name">AfyaConnect</field>
+            <field name="parent" ref="health.menu_health"/>
+            <field name="sequence">50</field>
+        </record>
+        <record model="ir.action.act_window" id="act_afya_config">
+            <field name="name">Afya Configuration</field>
+            <field name="res_model">gnuhealth.afya.config</field>
+        </record>
+        <record model="ir.action.act_window" id="act_consent_record">
+            <field name="name">Consent Records</field>
+            <field name="res_model">gnuhealth.afya.consent_record</field>
+        </record>
+        <record model="ir.action.act_window" id="act_posthoc_consent">
+            <field name="name">Post-Hoc Consent Tasks</field>
+            <field name="res_model">gnuhealth.afya.posthoc_consent_task</field>
+        </record>
+        <record model="ir.ui.menu" id="menu_afya_config">
+            <field name="name">Configuration</field>
+            <field name="parent" ref="menu_afya"/>
+            <field name="action" ref="act_afya_config"/>
+        </record>
+        <record model="ir.ui.menu" id="menu_afya_consent">
+            <field name="name">Consent</field>
+            <field name="parent" ref="menu_afya"/>
+            <field name="action" ref="act_consent_record"/>
+        </record>
+    </data>
+</tryton>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="res.group" id="group_afya_admin">
+            <field name="name">Afya Administrator</field>
+        </record>
+        <record model="res.group" id="group_clinical_reviewer">
+            <field name="name">Afya Clinical Reviewer</field>
+        </record>
+        <record model="res.group" id="group_dispatcher">
+            <field name="name">Afya Dispatcher</field>
+        </record>
+        <record model="res.group" id="group_diaspora_coordinator">
+            <field name="name">Afya Diaspora Coordinator</field>
+        </record>
+        <record model="res.group" id="group_dashboard_viewer">
+            <field name="name">Afya Dashboard Viewer</field>
+        </record>
+    </data>
+</tryton>
