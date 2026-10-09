@@ -19,23 +19,111 @@
             <field name="model">gnuhealth.afya.triage_session</field>
             <field name="type">form</field>
             <field name="name">triage_session_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Triage Session">
+                    <header>
+                        <button name="complete" string="Complete"/>
+                        <!-- Review is reviewer-only (T016/T045) -->
+                        <button name="review" string="Review"
+                            groups="gnuhealth_afya_core.group_clinical_reviewer"/>
+                        <button name="create_evaluation" string="Create Evaluation"
+                            groups="gnuhealth_afya_core.group_clinical_reviewer"/>
+                        <field name="state" widget="statusbar"
+                            status="draft,completed,reviewed,escalated,cancelled"/>
+                    </header>
+                    <notebook>
+                        <page string="Intake" id="intake">
+                            <group col="4">
+                                <label name="session_id"/>
+                                <field name="session_id"/>
+                                <label name="session_start_time"/>
+                                <field name="session_start_time"/>
+                                <label name="access_session"/>
+                                <field name="access_session"/>
+                                <label name="consent"/>
+                                <field name="consent"/>
+                            </group>
+                            <label name="symptoms_raw"/>
+                            <field name="symptoms_raw"/>
+                            <label name="symptoms_raw_expires_at"/>
+                            <field name="symptoms_raw_expires_at"/>
+                        </page>
+                        <page string="Assessment" id="assessment">
+                            <group col="4">
+                                <label name="triage_level"/>
+                                <field name="triage_level"/>
+                                <label name="triage_confidence"/>
+                                <field name="triage_confidence"/>
+                                <label name="human_review_required"/>
+                                <field name="human_review_required"/>
+                                <label name="posthoc_consent_needed"/>
+                                <field name="posthoc_consent_needed"/>
+                            </group>
+                            <label name="clinical_rationale"/>
+                            <field name="clinical_rationale"/>
+                        </page>
+                        <page string="Review" id="review">
+                            <group col="4">
+                                <label name="reviewer_decision"/>
+                                <field name="reviewer_decision"/>
+                                <label name="review_timestamp"/>
+                                <field name="review_timestamp"/>
+                            </group>
+                            <label name="reviewer_notes"/>
+                            <field name="reviewer_notes"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="triage_session_view_list">
             <field name="model">gnuhealth.afya.triage_session</field>
             <field name="type">tree</field>
             <field name="name">triage_session_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Triage Sessions">
+                    <field name="session_id"/>
+                    <field name="triage_level"/>
+                    <field name="triage_confidence"/>
+                    <field name="human_review_required"/>
+                    <field name="state"/>
+                </tree>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="review_triage_start_view_form">
             <field name="model">gnuhealth.afya.review_triage.start</field>
             <field name="type">form</field>
             <field name="name">review_triage_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Review Triage">
+                    <label name="reviewer_decision"/>
+                    <field name="reviewer_decision"/>
+                    <label name="reviewer_notes"/>
+                    <field name="reviewer_notes"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="create_evaluation_start_view_form">
             <field name="model">gnuhealth.afya.create_evaluation.start</field>
             <field name="type">form</field>
             <field name="name">create_evaluation_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Create Evaluation">
+                    <label name="patient"/>
+                    <field name="patient"/>
+                    <label name="icd10"/>
+                    <field name="icd10"/>
+                </form>
+                ]]>
+            </field>
         </record>
-        <!-- Group-restricted review button (T016/T045): clinical reviewers only -->
         <record model="ir.action.wizard" id="wizard_review_triage">
             <field name="name">Review Triage</field>
             <field name="wiz_name">gnuhealth.afya.review_triage</field>
@@ -43,6 +131,37 @@
         <record model="ir.action.wizard" id="wizard_create_evaluation">
             <field name="name">Create Evaluation</field>
             <field name="wiz_name">gnuhealth.afya.create_evaluation</field>
+        </record>
+        <record model="ir.ui.view" id="emergency_keyword_view_form">
+            <field name="model">gnuhealth.afya.emergency_keyword</field>
+            <field name="type">form</field>
+            <field name="name">emergency_keyword_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Emergency Keyword">
+                    <label name="term"/>
+                    <field name="term"/>
+                    <label name="language"/>
+                    <field name="language"/>
+                    <label name="active"/>
+                    <field name="active"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="emergency_keyword_view_list">
+            <field name="model">gnuhealth.afya.emergency_keyword</field>
+            <field name="type">tree</field>
+            <field name="name">emergency_keyword_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Emergency Keywords" editable="top">
+                    <field name="term"/>
+                    <field name="language"/>
+                    <field name="active"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>

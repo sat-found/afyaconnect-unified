@@ -19,21 +19,88 @@
             <field name="model">gnuhealth.afya.dispatch_request</field>
             <field name="type">form</field>
             <field name="name">dispatch_request_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Dispatch Request">
+                    <header>
+                        <!-- Approval is dispatcher-only (T034/T045) -->
+                        <button name="approve" string="Approve"
+                            groups="gnuhealth_afya_core.group_dispatcher"/>
+                        <button name="submit" string="Submit to NAERS"
+                            groups="gnuhealth_afya_core.group_dispatcher"/>
+                        <field name="state" widget="statusbar"
+                            status="candidate,approved,submitted,en_route,arrived,completed"/>
+                    </header>
+                    <group col="4">
+                        <label name="dispatch_ref"/>
+                        <field name="dispatch_ref"/>
+                        <label name="triage_session"/>
+                        <field name="triage_session"/>
+                        <label name="event_type"/>
+                        <field name="event_type"/>
+                        <label name="priority"/>
+                        <field name="priority"/>
+                        <label name="ambulance_id"/>
+                        <field name="ambulance_id"/>
+                        <label name="eta_minutes"/>
+                        <field name="eta_minutes"/>
+                        <label name="destination_facility"/>
+                        <field name="destination_facility"/>
+                    </group>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="dispatch_request_view_list">
             <field name="model">gnuhealth.afya.dispatch_request</field>
             <field name="type">tree</field>
             <field name="name">dispatch_request_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Dispatch Requests">
+                    <field name="dispatch_ref"/>
+                    <field name="event_type"/>
+                    <field name="priority"/>
+                    <field name="ambulance_id"/>
+                    <field name="eta_minutes"/>
+                    <field name="state"/>
+                </tree>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="create_candidate_start_view_form">
             <field name="model">gnuhealth.afya.create_dispatch_candidate.start</field>
             <field name="type">form</field>
             <field name="name">create_candidate_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Create Dispatch Candidate">
+                    <label name="triage_session"/>
+                    <field name="triage_session"/>
+                    <label name="event_type"/>
+                    <field name="event_type"/>
+                    <label name="priority"/>
+                    <field name="priority"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="approve_dispatch_start_view_form">
             <field name="model">gnuhealth.afya.approve_dispatch.start</field>
             <field name="type">form</field>
             <field name="name">approve_dispatch_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Approve Dispatch">
+                    <label name="ambulance_id"/>
+                    <field name="ambulance_id"/>
+                    <label name="eta_minutes"/>
+                    <field name="eta_minutes"/>
+                    <label name="destination"/>
+                    <field name="destination"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.action.wizard" id="wizard_create_candidate">
             <field name="name">Create Dispatch Candidate</field>
@@ -42,6 +109,39 @@
         <record model="ir.action.wizard" id="wizard_approve_dispatch">
             <field name="name">Approve Dispatch</field>
             <field name="wiz_name">gnuhealth.afya.approve_dispatch</field>
+        </record>
+        <record model="ir.ui.view" id="kit_template_view_form">
+            <field name="model">gnuhealth.afya.kit_template</field>
+            <field name="type">form</field>
+            <field name="name">kit_template_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Kit Template">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="event_type"/>
+                    <field name="event_type"/>
+                    <label name="items_json"/>
+                    <field name="items_json"/>
+                    <label name="active"/>
+                    <field name="active"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="kit_template_view_list">
+            <field name="model">gnuhealth.afya.kit_template</field>
+            <field name="type">tree</field>
+            <field name="name">kit_template_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Kit Templates">
+                    <field name="name"/>
+                    <field name="event_type"/>
+                    <field name="active"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>

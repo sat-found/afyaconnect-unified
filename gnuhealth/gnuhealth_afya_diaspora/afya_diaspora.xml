@@ -15,21 +15,69 @@
             <field name="model">gnuhealth.afya.diaspora_specialist</field>
             <field name="type">form</field>
             <field name="name">diaspora_specialist_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Diaspora Specialist">
+                    <group col="4">
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="specialty"/>
+                        <field name="specialty"/>
+                        <label name="timezone"/>
+                        <field name="timezone"/>
+                        <label name="active"/>
+                        <field name="active"/>
+                    </group>
+                    <label name="languages"/>
+                    <field name="languages"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="diaspora_specialist_view_list">
             <field name="model">gnuhealth.afya.diaspora_specialist</field>
             <field name="type">tree</field>
             <field name="name">diaspora_specialist_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Diaspora Specialists">
+                    <field name="name"/>
+                    <field name="specialty"/>
+                    <field name="languages"/>
+                    <field name="active"/>
+                </tree>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="match_specialist_start_view_form">
             <field name="model">gnuhealth.afya.match_specialist.start</field>
             <field name="type">form</field>
             <field name="name">match_specialist_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Match Specialist">
+                    <label name="case_brief"/>
+                    <field name="case_brief"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="generate_brief_start_view_form">
             <field name="model">gnuhealth.afya.generate_case_brief.start</field>
             <field name="type">form</field>
             <field name="name">generate_brief_start_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Generate Case Brief">
+                    <label name="triage_session"/>
+                    <field name="triage_session"/>
+                    <label name="specialty_needed"/>
+                    <field name="specialty_needed"/>
+                    <label name="urgency"/>
+                    <field name="urgency"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.action.wizard" id="wizard_match_specialist">
             <field name="name">Match Specialist</field>

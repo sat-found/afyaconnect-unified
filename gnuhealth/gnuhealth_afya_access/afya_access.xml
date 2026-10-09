@@ -15,11 +15,53 @@
             <field name="model">gnuhealth.afya.access_session</field>
             <field name="type">form</field>
             <field name="name">access_session_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Access Session">
+                    <header>
+                        <button name="begin" string="Begin"/>
+                        <button name="mark_triaged" string="Mark Triaged"/>
+                        <button name="close" string="Close"/>
+                    </header>
+                    <group col="4">
+                        <label name="session_id"/>
+                        <field name="session_id"/>
+                        <label name="channel"/>
+                        <field name="channel"/>
+                        <label name="language"/>
+                        <field name="language"/>
+                        <label name="state"/>
+                        <field name="state"/>
+                        <label name="detected_language"/>
+                        <field name="detected_language"/>
+                        <label name="language_confidence"/>
+                        <field name="language_confidence"/>
+                        <label name="fulfulde_fallback"/>
+                        <field name="fulfulde_fallback"/>
+                        <label name="interaction_count"/>
+                        <field name="interaction_count"/>
+                    </group>
+                    <label name="triage_session"/>
+                    <field name="triage_session"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="access_session_view_list">
             <field name="model">gnuhealth.afya.access_session</field>
             <field name="type">tree</field>
             <field name="name">access_session_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Access Sessions">
+                    <field name="session_id"/>
+                    <field name="channel"/>
+                    <field name="language"/>
+                    <field name="state"/>
+                    <field name="interaction_count"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>

@@ -6,21 +6,71 @@
             <field name="model">gnuhealth.afya.config</field>
             <field name="type">form</field>
             <field name="name">afya_config_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Afya Configuration">
+                    <label name="symptoms_raw_ttl_days"/>
+                    <field name="symptoms_raw_ttl_days"/>
+                    <label name="k_anonymity_threshold"/>
+                    <field name="k_anonymity_threshold"/>
+                    <label name="region_coarsening_cascade"/>
+                    <field name="region_coarsening_cascade"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="afya_config_view_list">
             <field name="model">gnuhealth.afya.config</field>
             <field name="type">tree</field>
             <field name="name">afya_config_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Afya Configuration">
+                    <field name="symptoms_raw_ttl_days"/>
+                    <field name="k_anonymity_threshold"/>
+                    <field name="region_coarsening_cascade"/>
+                </tree>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="consent_record_view_form">
             <field name="model">gnuhealth.afya.consent_record</field>
             <field name="type">form</field>
             <field name="name">consent_record_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Consent Record">
+                    <group col="4">
+                        <label name="consent_status"/>
+                        <field name="consent_status"/>
+                        <label name="consent_actor"/>
+                        <field name="consent_actor"/>
+                        <label name="consent_scope"/>
+                        <field name="consent_scope"/>
+                        <label name="notes_category"/>
+                        <field name="notes_category"/>
+                    </group>
+                    <label name="party"/>
+                    <field name="party"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="consent_record_view_list">
             <field name="model">gnuhealth.afya.consent_record</field>
             <field name="type">tree</field>
             <field name="name">consent_record_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Consent Records">
+                    <field name="consent_status"/>
+                    <field name="consent_actor"/>
+                    <field name="consent_scope"/>
+                    <field name="notes_category"/>
+                    <field name="party"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>

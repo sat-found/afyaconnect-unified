@@ -15,11 +15,46 @@
             <field name="model">gnuhealth.afya.analytics_outbox</field>
             <field name="type">form</field>
             <field name="name">analytics_outbox_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Analytics Outbox Event">
+                    <group col="4">
+                        <label name="event_id"/>
+                        <field name="event_id"/>
+                        <label name="event_type"/>
+                        <field name="event_type"/>
+                        <label name="triage_level"/>
+                        <field name="triage_level"/>
+                        <label name="coarse_region"/>
+                        <field name="coarse_region"/>
+                        <label name="region_level"/>
+                        <field name="region_level"/>
+                        <label name="channel"/>
+                        <field name="channel"/>
+                        <label name="language"/>
+                        <field name="language"/>
+                        <label name="exported"/>
+                        <field name="exported"/>
+                    </group>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="analytics_outbox_view_list">
             <field name="model">gnuhealth.afya.analytics_outbox</field>
             <field name="type">tree</field>
             <field name="name">analytics_outbox_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Analytics Outbox">
+                    <field name="event_id"/>
+                    <field name="event_type"/>
+                    <field name="triage_level"/>
+                    <field name="coarse_region"/>
+                    <field name="exported"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>

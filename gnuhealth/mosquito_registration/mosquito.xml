@@ -10,11 +10,32 @@
             <field name="model">mosquito.registration</field>
             <field name="type">form</field>
             <field name="name">mosquito_form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Mosquito Registration">
+                    <label name="code"/>
+                    <field name="code"/>
+                    <label name="location"/>
+                    <field name="location"/>
+                    <label name="active"/>
+                    <field name="active"/>
+                </form>
+                ]]>
+            </field>
         </record>
         <record model="ir.ui.view" id="mosquito_view_list">
             <field name="model">mosquito.registration</field>
             <field name="type">tree</field>
             <field name="name">mosquito_list</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Mosquito Registrations">
+                    <field name="code"/>
+                    <field name="location"/>
+                    <field name="active"/>
+                </tree>
+                ]]>
+            </field>
         </record>
     </data>
 </tryton>
