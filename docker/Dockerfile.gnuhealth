@@ -14,10 +14,15 @@ COPY data/ /opt/gnuhealth/seed-xml/
 COPY docker/gnuhealth/trytond.conf.example /opt/gnuhealth/etc/trytond.conf.example
 COPY docker/gnuhealth/uwsgi.ini /opt/gnuhealth/etc/uwsgi.ini
 COPY docker/gnuhealth/init_and_run.sh /opt/gnuhealth/init_and_run.sh
+COPY docker/gnuhealth/sao-index.html /opt/gnuhealth/etc/sao-index.html
 
 RUN pip install --no-cache-dir \
     "trytond==7.0.*" "gnuhealth-all-modules==5.0.*" \
-    uwsgi psycopg2-binary lxml pyphen python-dateutil
+    uwsgi psycopg2-binary lxml pyphen python-dateutil \
+    && SITE=$(python3 -c "import trytond, os; print(os.path.join(os.path.dirname(trytond.__file__), 'modules'))") \
+    && cp -r /opt/gnuhealth/modules/afya/gnuhealth_afya_* /opt/gnuhealth/modules/afya/mosquito_registration "$SITE/modules/" \
+    && mkdir -p /var/lib/tryton /opt/gnuhealth/sao \
+    && chmod +x /opt/gnuhealth/init_and_run.sh
 
 EXPOSE 8000
 CMD ["/opt/gnuhealth/init_and_run.sh"]
