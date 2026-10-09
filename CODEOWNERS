@@ -1,0 +1,6 @@
+# Code owners — reviews required from module owners.
+* @sat-found/maintainers
+/gnuhealth/ @sat-found/clinical-platform
+/services/ @sat-found/backend
+/docker/ @sat-found/devops
+/specs/ @sat-found/clinical-platform
