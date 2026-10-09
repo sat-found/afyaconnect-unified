@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common import add_standard_middleware, validate_analytics  # noqa: E402
 
 from fastapi import FastAPI  # noqa: E402
-from pydantic import BaseModel  # noqa: E402
+from pydantic import BaseModel, ConfigDict  # noqa: E402
 
 app = FastAPI(title='Afya Analytics Exporter', version='1.0.0')
 add_standard_middleware(app, 'analytics-exporter')
@@ -16,6 +16,9 @@ EXPORTED: list = []
 
 
 class Event(BaseModel):
+    # Strict schema: unknown keys (incl. free text) -> 422, never silently dropped.
+    model_config = ConfigDict(extra='forbid')
+
     event_id: str
     event_type: str
     triage_level: str = 'unknown'

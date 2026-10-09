@@ -7,6 +7,7 @@ requires-python = ">=3.11"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+markers = ["services: live-service acceptance checks (skipped when services are down)"]
 
 [tool.ruff]
 line-length = 100
