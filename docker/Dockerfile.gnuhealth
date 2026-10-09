@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir \
     "trytond==7.0.*" "gnuhealth-all-modules==5.0.*" \
     uwsgi psycopg2-binary lxml pyphen python-dateutil \
     && SITE=$(python3 -c "import trytond, os; print(os.path.join(os.path.dirname(trytond.__file__), 'modules'))") \
-    && cp -r /opt/gnuhealth/modules/afya/gnuhealth_afya_* /opt/gnuhealth/modules/afya/mosquito_registration "$SITE/modules/" \
+    && cp -r /opt/gnuhealth/modules/afya/gnuhealth_afya_* /opt/gnuhealth/modules/afya/mosquito_registration "$SITE/" \
     && mkdir -p /var/lib/tryton /opt/gnuhealth/sao \
     && chmod +x /opt/gnuhealth/init_and_run.sh
 
