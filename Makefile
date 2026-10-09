@@ -1,4 +1,4 @@
-.PHONY: help test test-cov lint security up down logs status seed seed-xml compose-config services-up fmt xml-check
+.PHONY: help test test-cov lint security up down logs status seed seed-xml compose-config services-up services-test e2e smoke fmt xml-check
 
 help: ## Show this help
 	@grep -E '^[a-z-]+: ## ' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS=": ## "}; {printf "  %-15s %s\n", $$1, $$2}'
@@ -41,6 +41,15 @@ compose-config: ## Validate compose files
 
 services-up: ## Run the 5 FastAPI services locally (ports 8081-8085)
 	docker compose -f services/docker-compose.services.yml up --build
+
+services-test: ## Live acceptance suite against local services
+	AFYA_GW_URL=http://localhost:8081 python3 -m pytest tests/acceptance -q
+
+e2e: ## Boot services (no Docker) + live E2E demo + acceptance suite
+	bash scripts/e2e-demo.sh
+
+smoke: ## Import all Tryton modules against real trytond 7.0 (no DB)
+	bash scripts/smoke_tryton_imports.sh
 
 fmt: ## autopep8 in place
 	bash scripts/autopep8.sh

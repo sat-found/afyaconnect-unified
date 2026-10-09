@@ -9,8 +9,15 @@
   `docs/API.md`, gateway/middleware tests.
 - Tryton: complete form/tree arch for all 7 modules, group-guarded clinical
   buttons, `test_views.py` view↔model consistency suite.
+- Live acceptance suite (`tests/acceptance/test_at_live.py`, 9 checks) + `make e2e`
+  demo script; verified 9/9 against booted services.
+- `make smoke`: all 7 Tryton modules import clean against real trytond 7.0.58;
+  namespaces, fields, tryton.cfg references asserted.
+- Real idempotent GCP bootstrap commands (02–10).
 ### Fixed
 - `.env.example` no longer git-ignored; Dockerfile cleanup.
+- analytics-exporter: strict `extra='forbid'` schema — free-text keys now 422
+  instead of being silently dropped (PII-drop bug caught by live AT-PRIV-01).
 
 ## [0.5.0] — 2026-10-09
 ### Added
