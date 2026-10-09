@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="ir.action.act_window" id="act_mosquito">
+            <field name="name">Mosquito Registrations</field>
+            <field name="res_model">mosquito.registration</field>
+        </record>
+        <record model="ir.ui.view" id="mosquito_view_form">
+            <field name="model">mosquito.registration</field>
+            <field name="type">form</field>
+            <field name="name">mosquito_form</field>
+        </record>
+        <record model="ir.ui.view" id="mosquito_view_list">
+            <field name="model">mosquito.registration</field>
+            <field name="type">tree</field>
+            <field name="name">mosquito_list</field>
+        </record>
+    </data>
+</tryton>

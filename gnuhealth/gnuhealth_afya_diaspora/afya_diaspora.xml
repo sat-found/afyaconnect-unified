@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="ir.action.act_window" id="act_diaspora_specialist">
+            <field name="name">Diaspora Specialists</field>
+            <field name="res_model">gnuhealth.afya.diaspora_specialist</field>
+        </record>
+        <record model="ir.ui.menu" id="menu_afya_diaspora">
+            <field name="name">Diaspora</field>
+            <field name="parent" ref="gnuhealth_afya_core.menu_afya"/>
+            <field name="action" ref="act_diaspora_specialist"/>
+        </record>
+        <record model="ir.ui.view" id="diaspora_specialist_view_form">
+            <field name="model">gnuhealth.afya.diaspora_specialist</field>
+            <field name="type">form</field>
+            <field name="name">diaspora_specialist_form</field>
+        </record>
+        <record model="ir.ui.view" id="diaspora_specialist_view_list">
+            <field name="model">gnuhealth.afya.diaspora_specialist</field>
+            <field name="type">tree</field>
+            <field name="name">diaspora_specialist_list</field>
+        </record>
+        <record model="ir.ui.view" id="match_specialist_start_view_form">
+            <field name="model">gnuhealth.afya.match_specialist.start</field>
+            <field name="type">form</field>
+            <field name="name">match_specialist_start_form</field>
+        </record>
+        <record model="ir.ui.view" id="generate_brief_start_view_form">
+            <field name="model">gnuhealth.afya.generate_case_brief.start</field>
+            <field name="type">form</field>
+            <field name="name">generate_brief_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_match_specialist">
+            <field name="name">Match Specialist</field>
+            <field name="wiz_name">gnuhealth.afya.match_specialist</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_generate_brief">
+            <field name="name">Generate Case Brief</field>
+            <field name="wiz_name">gnuhealth.afya.generate_case_brief</field>
+        </record>
+    </data>
+</tryton>
