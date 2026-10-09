@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="ir.ui.menu" id="menu_afya_triage">
+            <field name="name">Triage</field>
+            <field name="parent" ref="gnuhealth_afya_core.menu_afya"/>
+            <field name="action" ref="act_triage_session"/>
+        </record>
+        <record model="ir.action.act_window" id="act_triage_session">
+            <field name="name">Triage Sessions</field>
+            <field name="res_model">gnuhealth.afya.triage_session</field>
+        </record>
+        <record model="ir.action.act_window" id="act_emergency_keyword">
+            <field name="name">Emergency Keywords</field>
+            <field name="res_model">gnuhealth.afya.emergency_keyword</field>
+        </record>
+        <record model="ir.ui.view" id="triage_session_view_form">
+            <field name="model">gnuhealth.afya.triage_session</field>
+            <field name="type">form</field>
+            <field name="name">triage_session_form</field>
+        </record>
+        <record model="ir.ui.view" id="triage_session_view_list">
+            <field name="model">gnuhealth.afya.triage_session</field>
+            <field name="type">tree</field>
+            <field name="name">triage_session_list</field>
+        </record>
+        <record model="ir.ui.view" id="review_triage_start_view_form">
+            <field name="model">gnuhealth.afya.review_triage.start</field>
+            <field name="type">form</field>
+            <field name="name">review_triage_start_form</field>
+        </record>
+        <record model="ir.ui.view" id="create_evaluation_start_view_form">
+            <field name="model">gnuhealth.afya.create_evaluation.start</field>
+            <field name="type">form</field>
+            <field name="name">create_evaluation_start_form</field>
+        </record>
+        <!-- Group-restricted review button (T016/T045): clinical reviewers only -->
+        <record model="ir.action.wizard" id="wizard_review_triage">
+            <field name="name">Review Triage</field>
+            <field name="wiz_name">gnuhealth.afya.review_triage</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_create_evaluation">
+            <field name="name">Create Evaluation</field>
+            <field name="wiz_name">gnuhealth.afya.create_evaluation</field>
+        </record>
+    </data>
+</tryton>

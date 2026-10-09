@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <!-- Reviewers see triage; dispatchers see triage read-only for context -->
+        <record model="ir.model.access" id="access_triage_reviewer">
+            <field name="model" search="[('model', '=', 'gnuhealth.afya.triage_session')]"/>
+            <field name="group" ref="gnuhealth_afya_core.group_clinical_reviewer"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+    </data>
+</tryton>

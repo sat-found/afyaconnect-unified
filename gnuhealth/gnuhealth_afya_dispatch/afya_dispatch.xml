@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<tryton>
+    <data>
+        <record model="ir.action.act_window" id="act_dispatch_request">
+            <field name="name">Dispatch Requests</field>
+            <field name="res_model">gnuhealth.afya.dispatch_request</field>
+        </record>
+        <record model="ir.action.act_window" id="act_kit_template">
+            <field name="name">Kit Templates</field>
+            <field name="res_model">gnuhealth.afya.kit_template</field>
+        </record>
+        <record model="ir.ui.menu" id="menu_afya_dispatch">
+            <field name="name">Dispatch</field>
+            <field name="parent" ref="gnuhealth_afya_core.menu_afya"/>
+            <field name="action" ref="act_dispatch_request"/>
+        </record>
+        <record model="ir.ui.view" id="dispatch_request_view_form">
+            <field name="model">gnuhealth.afya.dispatch_request</field>
+            <field name="type">form</field>
+            <field name="name">dispatch_request_form</field>
+        </record>
+        <record model="ir.ui.view" id="dispatch_request_view_list">
+            <field name="model">gnuhealth.afya.dispatch_request</field>
+            <field name="type">tree</field>
+            <field name="name">dispatch_request_list</field>
+        </record>
+        <record model="ir.ui.view" id="create_candidate_start_view_form">
+            <field name="model">gnuhealth.afya.create_dispatch_candidate.start</field>
+            <field name="type">form</field>
+            <field name="name">create_candidate_start_form</field>
+        </record>
+        <record model="ir.ui.view" id="approve_dispatch_start_view_form">
+            <field name="model">gnuhealth.afya.approve_dispatch.start</field>
+            <field name="type">form</field>
+            <field name="name">approve_dispatch_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_create_candidate">
+            <field name="name">Create Dispatch Candidate</field>
+            <field name="wiz_name">gnuhealth.afya.create_dispatch_candidate</field>
+        </record>
+        <record model="ir.action.wizard" id="wizard_approve_dispatch">
+            <field name="name">Approve Dispatch</field>
+            <field name="wiz_name">gnuhealth.afya.approve_dispatch</field>
+        </record>
+    </data>
+</tryton>
