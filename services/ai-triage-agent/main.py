@@ -7,18 +7,13 @@ import time
 import uuid
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from common import redact_phones  # noqa: E402
+from common import add_standard_middleware, classify, redact_phones  # noqa: E402
 
 from fastapi import FastAPI  # noqa: E402
 from pydantic import BaseModel  # noqa: E402
 
 app = FastAPI(title='Afya AI Triage Agent', version='1.0.0')
-
-EMERGENCY_TERMS = ['unconscious', 'cannot breathe', 'ba iya numfashi', 'severe bleeding',
-    'jini mai yawa', 'chest pain', 'ciwon kirji', 'stroke', 'seizure', 'choking',
-    'a numaani', 'heart attack', 'pregnancy bleeding', 'labour pain']
-RED_TERMS = ['high fever', 'zazzabi', 'convulsion', 'severe headache', 'ciwon kai',
-    'difficulty breathing', 'allergic reaction']
+add_standard_middleware(app, 'ai-triage-agent')
 
 
 class TriageIn(BaseModel):
@@ -27,22 +22,14 @@ class TriageIn(BaseModel):
     session_id: str | None = None
 
 
-def classify(text):
-    t = (text or '').lower()
-    red_flags = [k for k in EMERGENCY_TERMS if k in t]
-    if red_flags:
-        return 'emergency', 0.92, red_flags
-    reds = [k for k in RED_TERMS if k in t]
-    if reds:
-        return 'red', 0.81, reds
-    if len(t.split()) < 4:
-        return 'green', 0.6, []
-    return 'yellow', 0.7, []
-
-
 @app.get('/healthz')
 def healthz():
     return {'ok': True, 'service': 'ai-triage-agent'}
+
+
+@app.get('/')
+def info():
+    return {'service': 'ai-triage-agent', 'docs': '/docs', 'health': '/healthz'}
 
 
 @app.post('/triage')

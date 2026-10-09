@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 # SPDX-License-Identifier: Apache-2.0
 """fhir-adapter: read-only FHIR R4 (Patient/Condition/Location) over Tryton data."""
+import os
+import sys
 import time
-from fastapi import FastAPI, Response
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from common import add_standard_middleware  # noqa: E402
+
+from fastapi import FastAPI, Response  # noqa: E402
 
 app = FastAPI(title='Afya FHIR Adapter', version='1.0.0')
+add_standard_middleware(app, 'fhir-adapter')
 
 DEMO = {
     'Patient': [{'id': 'gombe-001', 'name': 'Synthetic Patient 001 (Gombe)'}],
@@ -16,6 +23,12 @@ DEMO = {
 @app.get('/healthz')
 def healthz():
     return {'ok': True, 'service': 'fhir-adapter'}
+
+
+@app.get('/')
+def info():
+    return {'service': 'fhir-adapter', 'docs': '/docs',
+        'resources': ['Patient', 'Condition', 'Location']}
 
 
 @app.get('/fhir/{resource}')

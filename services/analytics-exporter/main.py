@@ -5,12 +5,13 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from common import validate_analytics  # noqa: E402
+from common import add_standard_middleware, validate_analytics  # noqa: E402
 
 from fastapi import FastAPI  # noqa: E402
 from pydantic import BaseModel  # noqa: E402
 
 app = FastAPI(title='Afya Analytics Exporter', version='1.0.0')
+add_standard_middleware(app, 'analytics-exporter')
 EXPORTED: list = []
 
 
@@ -29,6 +30,12 @@ class Event(BaseModel):
 @app.get('/healthz')
 def healthz():
     return {'ok': True, 'service': 'analytics-exporter', 'exported': len(EXPORTED)}
+
+
+@app.get('/')
+def info():
+    return {'service': 'analytics-exporter', 'docs': '/docs',
+        'exported': len(EXPORTED)}
 
 
 @app.post('/export')

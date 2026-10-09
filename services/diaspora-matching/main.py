@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 # SPDX-License-Identifier: Apache-2.0
 """diaspora-matching: mock specialist scoring (audio-only consults MVP)."""
-from fastapi import FastAPI
-from pydantic import BaseModel
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from common import add_standard_middleware  # noqa: E402
+
+from fastapi import FastAPI  # noqa: E402
+from pydantic import BaseModel  # noqa: E402
 
 app = FastAPI(title='Afya Diaspora Matching', version='1.0.0')
+add_standard_middleware(app, 'diaspora-matching')
 
 SPECIALISTS = [
     {'name': 'Dr. A. Modibbo', 'specialty': 'cardiology', 'languages': ['en', 'ha'], 'tz': 'America/New_York'},
@@ -23,6 +30,12 @@ class MatchIn(BaseModel):
 @app.get('/healthz')
 def healthz():
     return {'ok': True, 'service': 'diaspora-matching'}
+
+
+@app.get('/')
+def info():
+    return {'service': 'diaspora-matching', 'docs': '/docs',
+        'specialists': len(SPECIALISTS)}
 
 
 @app.post('/match')
