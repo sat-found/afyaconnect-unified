@@ -23,10 +23,12 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
-# Secrets — never commit
+# Secrets — never commit (but DO commit .env.example as the template)
 docker/gnuhealth/trytond.conf
 **/trytond.conf
+.env
 .env.*
+!.env.example
 secrets/
 # Temp clones
 temp-afya/
